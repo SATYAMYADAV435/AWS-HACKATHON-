@@ -23,3 +23,7 @@ Thumbs.db
 # IDE
 .idea/
 .vscode/
+
+# Agent skills (keep taste-skill only)
+.agents/skills/*
+!.agents/skills/taste-skill/
