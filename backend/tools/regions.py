@@ -55,3 +55,15 @@ def get_typical_soils(district_name: str = "nashik") -> List[str]:
     if info:
         return info.get("typical_soils", ["medium_black"])
     return ["medium_black"]
+
+def get_state_languages() -> Dict[str, Dict[str, str]]:
+    data = _load_regions()
+    return data.get("state_languages", {})
+
+def get_language_for_state(state: str) -> Dict[str, str]:
+    langs = get_state_languages()
+    for s_name, l_info in langs.items():
+        if s_name.lower() == (state or "").strip().lower():
+            return l_info
+    return {"code": "mr", "label": "मराठी", "speechCode": "mr-IN"}
+

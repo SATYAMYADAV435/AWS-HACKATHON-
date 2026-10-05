@@ -21,19 +21,24 @@ def run_land_agent(profile: FarmerProfile, crop: Optional[str] = None) -> AgentR
             next_check=None
         )
 
-    soils = ", ".join(info.get("typical_soils", ["medium_black"]))
+    soils = profile.soil_type or ", ".join(info.get("typical_soils", ["medium_black"]))
     rainfall = info.get("annual_rainfall_mm", 700)
     zone = info.get("climate_zone", "Transition Zone")
+    farm_name = profile.farm_name or "तुमची शेती"
+    soil_ph = profile.soil_ph or "6.8"
 
     finding = (
-        f"{district.capitalize()} भागातील जमीन मुख्यतः {soils} स्वरूपाची असून सरासरी पाऊस {rainfall} मिमी आहे. "
-        f"ही जमीन रब्बी हंगामातील पिकांसाठी उपयुक्त आहे (हे प्रातिनिधिक विश्लेषण आहे, सॉईल टेस्ट नाही)."
+        f"{farm_name} ({district.capitalize()}): जमिनीचा प्रकार '{soils.replace('_', ' ')}' व pH {soil_ph} आहे. "
+        f"पावसाचे प्रमाण {rainfall} मिमी असून जमीन रब्बी पिकांसाठी अनुकूल आहे. "
+        f"(हे प्रातिनिधिक विश्लेषण आहे, सॉईल टेस्ट कार्ड तपासा)."
     )
 
     evidence = [
+        f"Farm: {farm_name}",
         f"District: {district.capitalize()}",
+        f"Farm Soil: {soils}",
+        f"Soil pH: {soil_ph}",
         f"Climate Zone: {zone}",
-        f"Typical Soils: {soils}",
         f"Annual Rainfall: {rainfall} mm"
     ]
 
@@ -45,3 +50,4 @@ def run_land_agent(profile: FarmerProfile, crop: Optional[str] = None) -> AgentR
         data_source="regions.json",
         next_check=None
     )
+

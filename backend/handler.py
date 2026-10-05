@@ -135,11 +135,22 @@ def process_chat_request(payload: Dict[str, Any]) -> Dict[str, Any]:
         acres=float(payload.get("acres", 3.0)),
         water_source=payload.get("water_source", "well"),
         language=router_out.language,
-        season=payload.get("season", "rabi")
+        season=payload.get("season", "rabi"),
+        farm_id=payload.get("farm_id"),
+        farm_name=payload.get("farm_name", "Farm 1"),
+        state=payload.get("state", "Maharashtra"),
+        locality=payload.get("locality", ""),
+        soil_type=payload.get("soil_type", "medium_black"),
+        soil_ph=str(payload.get("soil_ph", "6.8")),
+        soil_quality=payload.get("soil_quality", "good"),
+        irrigation_type=payload.get("irrigation_type", "drip"),
+        current_crop=payload.get("current_crop"),
+        crop_stage=payload.get("crop_stage"),
+        notes=payload.get("notes", "")
     )
 
     intent = router_out.intent
-    target_crop = router_out.crop
+    target_crop = router_out.crop or profile.current_crop
 
     # 3. Agent Execution
     findings = []
@@ -247,6 +258,34 @@ def process_chat_request(payload: Dict[str, Any]) -> Dict[str, Any]:
     validated_card = validate_answer_card_dict(card.model_dump(), lang=router_out.language)
     return validated_card
 
+def process_farm_intelligence_request(payload: Dict[str, Any]) -> Dict[str, Any]:
+    from backend.farm_intelligence import compute_farm_intelligence
+    profile = FarmerProfile(
+        district=payload.get("district", "nashik"),
+        acres=float(payload.get("acres", 3.0)),
+        water_source=payload.get("water_source", "well"),
+        language=payload.get("language", "mr"),
+        season=payload.get("season", "rabi"),
+        farm_id=payload.get("farm_id"),
+        farm_name=payload.get("farm_name", "Farm 1"),
+        state=payload.get("state", "Maharashtra"),
+        locality=payload.get("locality", ""),
+        soil_type=payload.get("soil_type", "medium_black"),
+        soil_ph=str(payload.get("soil_ph", "6.8")),
+        soil_quality=payload.get("soil_quality", "good"),
+        irrigation_type=payload.get("irrigation_type", "drip"),
+        current_crop=payload.get("current_crop", "onion"),
+        crop_stage=payload.get("crop_stage", "vegetative")
+    )
+    return compute_farm_intelligence(profile)
+
+def process_crop_image_request(payload: Dict[str, Any]) -> Dict[str, Any]:
+    from backend.image_analyzer import analyze_crop_image
+    image_b64 = payload.get("image", "")
+    mime_type = payload.get("mime_type", "image/jpeg")
+    farm_context = payload.get("farm_context", {})
+    return analyze_crop_image(image_b64, mime_type=mime_type, farm_context=farm_context)
+
 def lambda_handler(event: Dict[str, Any], context: Any = None) -> Dict[str, Any]:
     """Lambda Function URL entry handler."""
     http_method = event.get("requestContext", {}).get("http", {}).get("method") or event.get("httpMethod", "GET")
@@ -266,7 +305,18 @@ def lambda_handler(event: Dict[str, Any], context: Any = None) -> Dict[str, Any]
             "body": json.dumps({"status": "ok", "service": "kisanmitra"})
         }
 
-    # /chat endpoint
+    if raw_path in ("/api/regions", "/regions"):
+        from backend.tools.regions import get_all_districts, get_state_languages
+        return {
+            "statusCode": 200,
+            "headers": CORS_HEADERS,
+            "body": json.dumps({
+                "districts": get_all_districts(),
+                "state_languages": get_state_languages()
+            }, ensure_ascii=False)
+        }
+
+    # Parse body
     try:
         body_str = event.get("body", "{}")
         if event.get("isBase64Encoded"):
@@ -277,6 +327,23 @@ def lambda_handler(event: Dict[str, Any], context: Any = None) -> Dict[str, Any]
         logger.warning(f"Error parsing request body: {e}")
         payload = {}
 
+    if raw_path in ("/api/farm-intelligence", "/farm-intelligence"):
+        intel_res = process_farm_intelligence_request(payload)
+        return {
+            "statusCode": 200,
+            "headers": CORS_HEADERS,
+            "body": json.dumps(intel_res, ensure_ascii=False)
+        }
+
+    if raw_path in ("/api/crop-image-analysis", "/crop-image-analysis"):
+        img_res = process_crop_image_request(payload)
+        return {
+            "statusCode": 200,
+            "headers": CORS_HEADERS,
+            "body": json.dumps(img_res, ensure_ascii=False)
+        }
+
+    # /chat endpoint default
     response_card = process_chat_request(payload)
 
     return {

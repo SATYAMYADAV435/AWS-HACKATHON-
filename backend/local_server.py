@@ -50,6 +50,43 @@ def chat_options():
         }
     )
 
+@app.get("/api/regions")
+def api_regions():
+    from backend.tools.regions import get_all_districts, get_state_languages
+    return {
+        "districts": get_all_districts(),
+        "state_languages": get_state_languages()
+    }
+
+@app.post("/api/farm-intelligence")
+async def api_farm_intelligence(request: Request):
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    event = {
+        "rawPath": "/api/farm-intelligence",
+        "requestContext": {"http": {"method": "POST"}},
+        "body": json.dumps(body)
+    }
+    res = lambda_handler(event)
+    return JSONResponse(content=json.loads(res["body"]), status_code=res.get("statusCode", 200))
+
+@app.post("/api/crop-image-analysis")
+async def api_crop_image_analysis(request: Request):
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    event = {
+        "rawPath": "/api/crop-image-analysis",
+        "requestContext": {"http": {"method": "POST"}},
+        "body": json.dumps(body)
+    }
+    res = lambda_handler(event)
+    return JSONResponse(content=json.loads(res["body"]), status_code=res.get("statusCode", 200))
+
+@app.post("/api/chat")
 @app.post("/chat")
 async def chat_endpoint(request: Request):
     """

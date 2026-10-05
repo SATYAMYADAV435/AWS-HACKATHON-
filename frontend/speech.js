@@ -14,11 +14,16 @@ class KisanSpeech {
     this.currentUtterance = null;
     this.voices = [];
 
-    // Locale mapping for Marathi, Hindi, English (India)
+    // Locale mapping for Marathi, Hindi, English, and regional Indian languages
     this.localeMap = {
       mr: 'mr-IN',
       hi: 'hi-IN',
-      en: 'en-IN'
+      en: 'en-IN',
+      gu: 'gu-IN',
+      pa: 'pa-IN',
+      kn: 'kn-IN',
+      te: 'te-IN',
+      ta: 'ta-IN'
     };
 
     if (this.synthesis) {

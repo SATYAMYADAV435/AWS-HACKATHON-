@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field, field_validator
 
 # Allowed intents per RULES.md §3
 IntentType = Literal["what_to_grow", "weather_today", "prices", "how_to_grow", "unknown"]
-LanguageType = Literal["en", "hi", "mr"]
+LanguageType = Literal["en", "hi", "mr", "gu", "pa", "kn", "te", "ta"]
 RiskLevel = Literal["low", "medium", "high"]
 DataSourceType = Literal["open-meteo", "cache", "csv", "kb", "s3", "regions.json", "mpkv_bulletin"]
 
@@ -21,6 +21,19 @@ class FarmerProfile(BaseModel):
     language: LanguageType = Field(default="mr")
     season: str = Field(default="rabi")
 
+    # Enhanced Farm Personalization Attributes
+    farm_id: Optional[str] = Field(default=None)
+    farm_name: Optional[str] = Field(default="Farm 1")
+    state: Optional[str] = Field(default="Maharashtra")
+    locality: Optional[str] = Field(default="")
+    soil_type: Optional[str] = Field(default="medium_black") # medium_black, deep_black, red, alluvial_clay, sandy_loam, shallow_black
+    soil_ph: Optional[str] = Field(default="6.8") # e.g. "normal", "acidic", "alkaline", or numeric
+    soil_quality: Optional[str] = Field(default="good") # good, medium, degraded, unknown
+    irrigation_type: Optional[str] = Field(default="drip") # drip, sprinkler, flood, rainfed
+    current_crop: Optional[str] = Field(default=None)
+    crop_stage: Optional[str] = Field(default=None) # sowing, vegetative, flowering, fruiting, harvesting, fallow
+    notes: Optional[str] = Field(default="")
+
     @field_validator("district", mode="before")
     @classmethod
     def normalize_district(cls, v: str) -> str:
@@ -30,7 +43,8 @@ class FarmerProfile(BaseModel):
     @classmethod
     def normalize_language(cls, v: str) -> str:
         val = str(v).strip().lower() if v else "mr"
-        return val if val in ("en", "hi", "mr") else "mr"
+        allowed = ("en", "hi", "mr", "gu", "pa", "kn", "te", "ta")
+        return val if val in allowed else "mr"
 
 # 2. Router Output Contract
 class RouterOutput(BaseModel):
@@ -56,7 +70,8 @@ class RouterOutput(BaseModel):
     @classmethod
     def normalize_language(cls, v: str) -> str:
         val = str(v).strip().lower() if v else "mr"
-        return val if val in ("en", "hi", "mr") else "mr"
+        allowed = ("en", "hi", "mr", "gu", "pa", "kn", "te", "ta")
+        return val if val in allowed else "mr"
 
 # 3. Shared Agent Result Contract (EVERY agent returns exactly this shape)
 class AgentResult(BaseModel):
@@ -155,3 +170,31 @@ def validate_answer_card_dict(data: dict, lang: str = "mr") -> dict:
         return card.model_dump()
     except Exception:
         return safe_fallback_card(lang).model_dump()
+
+# 6. Farm Intelligence Contract
+class FarmIntelligenceResponse(BaseModel):
+    farm_id: Optional[str] = None
+    farm_name: str = "Farm 1"
+    district: str = "nashik"
+    current_crop: Optional[str] = "onion"
+    crop_stage: Optional[str] = "vegetative"
+    farm_health_score: int = Field(default=85, ge=0, le=100)
+    soil_health_score: int = Field(default=80, ge=0, le=100)
+    crop_health_risk: str = "low" # low, moderate, high
+    weather_summary: dict = Field(default_factory=dict)
+    personalized_recommendations: List[str] = Field(default_factory=list)
+    alerts: List[dict] = Field(default_factory=list)
+    soil_advice: str = ""
+    timestamp: str = ""
+
+# 7. Crop Image Analysis Contract
+class CropImageAnalysisResponse(BaseModel):
+    crop_name: str = "Crop"
+    condition: str = "Healthy"
+    risk_level: str = "low" # low, moderate, high
+    symptoms: List[str] = Field(default_factory=list)
+    recommended_actions: List[str] = Field(default_factory=list)
+    confidence_pct: int = Field(default=85, ge=0, le=100)
+    disclaimer: str = "Indicative diagnostic advisory based on visible image symptoms. For severe escalation, consult your nearest Krishi Vigyan Kendra (KVK) or Call 1800-180-1551."
+    image_url: Optional[str] = None
+

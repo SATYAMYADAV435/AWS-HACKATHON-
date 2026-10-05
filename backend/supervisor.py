@@ -168,8 +168,10 @@ def synthesize_answer(
     user_prompt = (
         f"Target Language: {lang}\n"
         f"Intent: {intent}\n"
-        f"Crop Mentioned: {router_output.crop or 'general'}\n"
-        f"Farmer Profile: District={profile.district}, Acres={profile.acres}, Water={profile.water_source}\n\n"
+        f"Crop Mentioned: {router_output.crop or profile.current_crop or 'general'}\n"
+        f"Farmer Profile: Farm={profile.farm_name}, District={profile.district}, Locality={profile.locality}, "
+        f"Acres={profile.acres}, Soil={profile.soil_type}, pH={profile.soil_ph}, Water={profile.water_source}, "
+        f"Irrigation={profile.irrigation_type}, Current Crop={profile.current_crop}, Crop Stage={profile.crop_stage}\n\n"
         f"Agent Findings:\n{context_str}\n\n"
         f"Recommender Output:\n{rec_str}\n\n"
         f"Please write the AnswerCard JSON now."

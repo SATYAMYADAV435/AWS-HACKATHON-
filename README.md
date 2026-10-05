@@ -1,38 +1,45 @@
 # 🌾 KisanMitra (किसान मित्र)
-### *Voice-First Agricultural Advisory for Indian Farmers*
+### *Personalized AI Farming Assistant & Multi-Farm Intelligence Companion*
 
-[![Tests](https://img.shields.io/badge/pytest-40%20passed-brightgreen.svg)](#automated-testing)
-[![Python](https://img.shields.io/badge/Python-3.12%20%7C%203.14-blue.svg)](#technology-stack)
-[![Language Lock](https://img.shields.io/badge/Languages-Marathi%20%7C%20Hindi%20%7C%20English-orange.svg)](#multilingual-voice-first-architecture)
+[![Tests](https://img.shields.io/badge/pytest-45%20passed-brightgreen.svg)](#automated-testing)
+[![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)](#technology-stack)
+[![Language Lock](https://img.shields.io/badge/Languages-Marathi%20%7C%20Hindi%20%7C%20English%20%7C%20Regional-orange.svg)](#multilingual-voice-first-architecture)
 [![Design Style](https://img.shields.io/badge/Aesthetic-Modern%20Earth%20Bohemian-sienna.svg)](#visual-aesthetic--taste-skill)
 
-**KisanMitra** is a low-literacy, voice-first agricultural decision support system designed specifically for rural Indian farmers across Maharashtra (supporting Rabi crops: Onion, Wheat, Gram/Chickpea, Tomato, Rabi Jowar, and Safflower).
+**KisanMitra** is a low-literacy, voice-first personalized agricultural decision support system designed specifically for Indian farmers. It enables farmers to manage multiple farms (Farm 1, Farm 2, etc.), complete farmer-friendly surveys (soil, pH, water, crop stage), receive tailored AI advisories, monitor farm health & weather radar, and diagnose plant diseases with multimodal image analysis.
 
 ---
 
-## 🌟 Key Highlights & Architectural Safeguards
+## 🌟 Key Highlights & Personalized Architecture
 
-1. **Voice-First & Low-Literacy Friendly:**
+1. **Multi-Farm Management & Supabase Auth:**
+   - Manage multiple individual farms (e.g. "Farm 1 - Mala", "Farm 2 - Shivar") with 1-tap switching.
+   - Farmer-friendly 3-step onboarding survey: Location, Land Size, Soil Type & pH (with "Don't know" guidance), Water source & Irrigation, Current Crop & Stage.
+   - Supabase Authentication with local offline guest/demo session fallback.
+
+2. **Personalized AI Farm Intelligence:**
+   - **Farm Health Score (0-100)**, **Soil Health Score**, and **Crop Health/Risk Index** calculated dynamically.
+   - Considers 10 individual farm parameters: `location + soil + pH + land size + crop + crop stage + irrigation + weather + analyses history`.
+   - Dynamic, AI-generated dashboard recommendations and tailored prompt suggestions.
+
+3. **Crop Doctor (Plant Image Diagnosis):**
+   - Upload leaf/crop images via file or camera for instant disease & pest diagnosis.
+   - Multimodal AWS Bedrock Claude 3 Haiku vision analysis with domain computer vision fallback.
+   - Clear indicators: Condition, Risk Level, Symptoms, Organic & Certified Treatments, Confidence %, and KVK Helpline.
+
+4. **Dynamic Regional State Languages:**
+   - Language selector dynamically adapts the 3rd button according to the active farm's state (Maharashtra -> Marathi, Gujarat -> Gujarati, Punjab -> Punjabi, Karnataka -> Kannada, Andhra/Telangana -> Telugu, Tamil Nadu -> Tamil).
+
+5. **Voice-First & Low-Literacy Friendly:**
    - Giant 104px breathing hero microphone with dynamic concentric ripples.
-   - Web Speech API integration (`mr-IN`, `hi-IN`, `en-IN`) with automatic read-aloud (`speak_text`).
-   - Non-blocking fallbacks: always displays 4 primary agricultural feature cards and text chat if microphone permissions are denied.
+   - Web Speech API integration (`mr-IN`, `hi-IN`, `en-IN`, `gu-IN`, `pa-IN`, `kn-IN`, `te-IN`, `ta-IN`) with automatic read-aloud (`speak_text`).
    - Quick one-tap actions on every card: **🔊 Listen Again / Stop**, **🎙️ Ask Another**, and **📞 Call KVK** (`tel:1800-180-1551`).
 
-2. **Strict Arithmetic & Anti-Hallucination Boundaries (RULES.md):**
+6. **Strict Arithmetic & Anti-Hallucination Boundaries (RULES.md):**
    - **The LLM never does math:** All crop profit calculations (`yield × price`, duration, trend) are executed in pure Python (`backend/recommender.py`).
    - **No source → No dosage:** Chemical dosages and fertilizer recommendations are strictly gated behind verified university packages of practices (`data/guides/`). If a guide is absent, the system outputs a mandatory referral to the nearest Krishi Vigyan Kendra (KVK) or Kisan Call Centre (1800-180-1551).
    - **Mandatory Honesty Labels:** Clear disclaimers ("प्रातिनिधिक माहिती", "खर्चापूर्वीचे उत्पन्न") accompany every advisory card.
-   - **Concise Outputs:** Max 3 summary lines and max 3 actionable steps; never overwhelming text.
 
-3. **100% Single-Language Script Lock:**
-   - Strict script isolation: Devanagari output never mixes Latin characters.
-   - Handles mixed-language input (e.g., Hinglish or Romanized Marathi in voice transcripts) and routes to pure native language responses.
-
-4. **Multi-Agent Architecture:**
-   - **Router (`backend/router.py`):** Classifies user questions into 5 core intents (`what_to_grow`, `weather_today`, `prices`, `how_to_grow`, `unknown`).
-   - **Specialized Agents (`backend/agents/`):** Weather Agent (Open-Meteo API + spray feasibility flags), Land Agent (soil & water constraints), Market Agent (APMC mandi prices), and Crop Guide Agent (university package of practices).
-   - **Supervisor (`backend/supervisor.py`):** Synthesizes agent findings into high-contrast metric badges, summary points, and audio text.
-   - **Schema Contracts (`backend/schemas.py`):** Pydantic v2 validation ensures every payload strictly conforms to contract with zero crash fallbacks.
 
 ---
 

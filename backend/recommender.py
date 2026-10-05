@@ -52,7 +52,20 @@ def recommend_crops(profile: FarmerProfile) -> Dict[str, Any]:
 
         # 3. Soil compatibility score
         crop_soils = crop.get("soil_pref", [])
-        soil_match = any(s in crop_soils for s in district_soils)
+        farm_soil = (profile.soil_type or "").lower().strip()
+        # Direct farm soil match has priority over generic district soils
+        if farm_soil and farm_soil in crop_soils:
+            soil_match = True
+            soil_multiplier = 1.15
+            match_detail = f"Excellent match for your farm's {farm_soil.replace('_', ' ')} soil"
+        elif any(s in crop_soils for s in district_soils):
+            soil_match = True
+            soil_multiplier = 1.05
+            match_detail = "Compatible with district agro-climatic profile"
+        else:
+            soil_match = False
+            soil_multiplier = 0.85
+            match_detail = "Moderate soil fit; requires organic conditioning"
 
         # 4. Fetch Mandi price and trend
         price_info = get_latest_price(crop_id, profile.district)
@@ -69,13 +82,15 @@ def recommend_crops(profile: FarmerProfile) -> Dict[str, Any]:
         total_gross = int(round(gross_per_acre * acres))
 
         # Ranking score: gross income + trend bonus + soil bonus
-        score = gross_per_acre
+        score = gross_per_acre * soil_multiplier
         if trend_info.get("direction") == "up":
             score *= 1.10
         elif trend_info.get("direction") == "down":
             score *= 0.90
-        if soil_match:
-            score *= 1.05
+
+        # Drip irrigation bonus for high water-need crops
+        if profile.irrigation_type == "drip" and crop.get("water_need") in ("medium", "high"):
+            score *= 1.08
 
         candidates.append({
             "crop_id": crop_id,
@@ -90,6 +105,7 @@ def recommend_crops(profile: FarmerProfile) -> Dict[str, Any]:
             "acres": acres,
             "price_trend": trend_info,
             "soil_compatible": soil_match,
+            "suitability_reason": match_detail,
             "source": crop.get("source", "MPKV Rahuri"),
             "varieties": crop.get("varieties", []),
             "ranking_score": score

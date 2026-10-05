@@ -1,4 +1,16 @@
 {
+  "state_languages": {
+    "Maharashtra": { "code": "mr", "label": "मराठी", "speechCode": "mr-IN" },
+    "Gujarat": { "code": "gu", "label": "ગુજરાતી", "speechCode": "gu-IN" },
+    "Punjab": { "code": "pa", "label": "ਪੰਜਾਬੀ", "speechCode": "pa-IN" },
+    "Karnataka": { "code": "kn", "label": "ಕನ್ನಡ", "speechCode": "kn-IN" },
+    "Andhra Pradesh": { "code": "te", "label": "తెలుగు", "speechCode": "te-IN" },
+    "Telangana": { "code": "te", "label": "తెలుగు", "speechCode": "te-IN" },
+    "Tamil Nadu": { "code": "ta", "label": "தமிழ்", "speechCode": "ta-IN" },
+    "Rajasthan": { "code": "mr", "label": "मराठी", "speechCode": "mr-IN" },
+    "Uttar Pradesh": { "code": "mr", "label": "मराठी", "speechCode": "mr-IN" },
+    "Madhya Pradesh": { "code": "mr", "label": "मराठी", "speechCode": "mr-IN" }
+  },
   "districts": [
     {
       "id": "nashik",
@@ -43,6 +55,83 @@
       "coordinates": { "latitude": 19.09, "longitude": 74.74 },
       "major_rabi_crops": ["gram", "rabi_jowar", "onion", "safflower"],
       "primary_markets": ["Ahmednagar", "Rahata", "Sangamner"]
+    },
+    {
+      "id": "nagpur",
+      "name": { "en": "Nagpur", "hi": "नागपुर", "mr": "नागपूर" },
+      "state": "Maharashtra",
+      "climate_zone": "Vidarbha Agro-Climatic Zone",
+      "typical_soils": ["deep_black", "medium_black"],
+      "annual_rainfall_mm": 1100,
+      "coordinates": { "latitude": 21.1458, "longitude": 79.0882 },
+      "major_rabi_crops": ["gram", "wheat", "orange"],
+      "primary_markets": ["Nagpur Kalamna", "Katol", "Kalmeshwar"]
+    },
+    {
+      "id": "kolhapur",
+      "name": { "en": "Kolhapur", "hi": "कोल्हापुर", "mr": "कोल्हापूर" },
+      "state": "Maharashtra",
+      "climate_zone": "Sub-Montane High Rainfall Zone",
+      "typical_soils": ["alluvial_clay", "red", "medium_black"],
+      "annual_rainfall_mm": 1200,
+      "coordinates": { "latitude": 16.7050, "longitude": 74.2433 },
+      "major_rabi_crops": ["sugarcane", "gram", "wheat"],
+      "primary_markets": ["Kolhapur", "Jaysingpur", "Gadhinglaj"]
+    },
+    {
+      "id": "rajkot",
+      "name": { "en": "Rajkot", "hi": "राजकोट", "gu": "રાજકોટ" },
+      "state": "Gujarat",
+      "climate_zone": "Saurashtra Semi-Arid Zone",
+      "typical_soils": ["medium_black", "shallow_black"],
+      "annual_rainfall_mm": 600,
+      "coordinates": { "latitude": 22.3039, "longitude": 70.8022 },
+      "major_rabi_crops": ["wheat", "gram", "cumin", "mustard"],
+      "primary_markets": ["Rajkot Bedi Yard", "Gondal"]
+    },
+    {
+      "id": "ludhiana",
+      "name": { "en": "Ludhiana", "hi": "लुधियाना", "pa": "ਲੁਧਿਆਣਾ" },
+      "state": "Punjab",
+      "climate_zone": "Central Alluvial Plain Zone",
+      "typical_soils": ["alluvial_clay", "sandy_loam"],
+      "annual_rainfall_mm": 700,
+      "coordinates": { "latitude": 30.9010, "longitude": 75.8573 },
+      "major_rabi_crops": ["wheat", "mustard", "potato"],
+      "primary_markets": ["Ludhiana Dana Mandi", "Khanna"]
+    },
+    {
+      "id": "belagavi",
+      "name": { "en": "Belagavi", "hi": "बेलगावी", "kn": "ಬೆಳಗಾವಿ" },
+      "state": "Karnataka",
+      "climate_zone": "Northern Transition Zone",
+      "typical_soils": ["medium_black", "red"],
+      "annual_rainfall_mm": 850,
+      "coordinates": { "latitude": 15.8497, "longitude": 74.4977 },
+      "major_rabi_crops": ["rabi_jowar", "gram", "sugarcane"],
+      "primary_markets": ["Belagavi APMC", "Bailhongal"]
+    },
+    {
+      "id": "guntur",
+      "name": { "en": "Guntur", "hi": "गुंटूर", "te": "గుంటూరు" },
+      "state": "Andhra Pradesh",
+      "climate_zone": "Krishna-Godavari Coastal Delta",
+      "typical_soils": ["deep_black", "alluvial_clay"],
+      "annual_rainfall_mm": 890,
+      "coordinates": { "latitude": 16.3067, "longitude": 80.4365 },
+      "major_rabi_crops": ["chilli", "gram", "blackgram"],
+      "primary_markets": ["Guntur Mirchi Yard", "Tenali"]
+    },
+    {
+      "id": "coimbatore",
+      "name": { "en": "Coimbatore", "hi": "कोयंबटूर", "ta": "கோயம்புத்தூர்" },
+      "state": "Tamil Nadu",
+      "climate_zone": "Western Agro-Climatic Zone",
+      "typical_soils": ["red", "medium_black"],
+      "annual_rainfall_mm": 670,
+      "coordinates": { "latitude": 11.0168, "longitude": 76.9558 },
+      "major_rabi_crops": ["cotton", "tomato", "maize"],
+      "primary_markets": ["Coimbatore APMC", "Pollachi"]
     }
   ]
 }
