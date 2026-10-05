@@ -1,0 +1,30 @@
+{
+  "crops": [
+    { "id": "onion", "en": "Onion", "hi": "प्याज", "mr": "कांदा" },
+    { "id": "wheat", "en": "Wheat", "hi": "गेहूं", "mr": "गहू" },
+    { "id": "gram", "en": "Gram / Chickpea", "hi": "चना", "mr": "हरभरा" },
+    { "id": "tomato", "en": "Tomato", "hi": "टमाटर", "mr": "टोमॅटो" },
+    { "id": "rabi_jowar", "en": "Rabi Jowar / Sorghum", "hi": "ज्वार", "mr": "रब्बी ज्वारी" },
+    { "id": "safflower", "en": "Safflower", "hi": "कुसुम", "mr": "करडई" }
+  ],
+  "units": [
+    { "id": "quintal", "en": "Quintal (100 kg)", "hi": "क्विंटल", "mr": "क्विंटल" },
+    { "id": "acre", "en": "Acre", "hi": "एकड़", "mr": "एकर" },
+    { "id": "rupee", "en": "₹ (Rupees)", "hi": "₹ (रुपये)", "mr": "₹ (रुपये)" },
+    { "id": "duration_days", "en": "Days", "hi": "दिन", "mr": "दिवस" },
+    { "id": "temperature", "en": "°C", "hi": "°C", "mr": "°C" },
+    { "id": "rainfall_mm", "en": "mm", "hi": "मिमी", "mr": "मिमी" }
+  ],
+  "farming_terms": [
+    { "id": "sowing", "en": "Sowing / Planting", "hi": "बुवाई", "mr": "पेरणी / लागवड" },
+    { "id": "seed_treatment", "en": "Seed Treatment", "hi": "बीज उपचार", "mr": "बीजप्रक्रिया" },
+    { "id": "irrigation", "en": "Irrigation", "hi": "सिंचाई", "mr": "पाणी व्यवस्थापन" },
+    { "id": "fertilizer", "en": "Fertilizer", "hi": "खाद / उर्वरक", "mr": "खत व्यवस्थापन" },
+    { "id": "spraying", "en": "Spraying", "hi": "छिड़काव", "mr": "फवारणी" },
+    { "id": "harvesting", "en": "Harvesting", "hi": "कटाई", "mr": "कापणी / काढणी" },
+    { "id": "mandi_price", "en": "Mandi Market Rate", "hi": "मंडी भाव", "mr": "बाजार भाव" },
+    { "id": "modal_price", "en": "Average / Modal Rate", "hi": "औसत भाव", "mr": "सरासरी दर" },
+    { "id": "soil_type", "en": "Soil Type", "hi": "मिट्टी का प्रकार", "mr": "जमिनीचा प्रकार" },
+    { "id": "water_source", "en": "Water Source", "hi": "सिंचाई का साधन", "mr": "पाण्याचा स्त्रोत" }
+  ]
+}

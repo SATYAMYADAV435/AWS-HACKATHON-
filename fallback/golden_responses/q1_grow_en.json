@@ -1,0 +1,37 @@
+{
+  "title": "Crop Advisory (Nashik Rabi Season)",
+  "summary_lines": [
+    "Rabi Onion and Gram (Chickpea) are top recommendations for your soil.",
+    "Estimated gross income for Onion is ₹1,40,000 per acre.",
+    "Requires 110-120 days under well irrigation and medium black soil."
+  ],
+  "steps": [
+    "1. Prepare raised beds with drip irrigation lines.",
+    "2. Treat seeds/seedlings with Trichoderma before planting.",
+    "3. Apply balanced fertilizers based on university guidelines."
+  ],
+  "labels": [
+    "Representative Data",
+    "Gross Income Before Cost",
+    "Seasonal Estimate"
+  ],
+  "sources": [
+    "Mahatma Phule Krishi Vidyapeeth (MPKV) Rahuri"
+  ],
+  "speak_text": "For Nashik district, Rabi Onion and Gram are your best options. Onion offers attractive returns under well irrigation.",
+  "language": "en",
+  "metrics": [
+    {
+      "label": "Est. Gross",
+      "value": "₹312,400 / acre"
+    },
+    {
+      "label": "Duration",
+      "value": "120 days"
+    },
+    {
+      "label": "Price Trend",
+      "value": "↗ +13.6%"
+    }
+  ]
+}

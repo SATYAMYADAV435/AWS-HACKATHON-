@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sunita",
+    "name": "Sunita Patil",
+    "district": "nashik",
+    "district_display": { "en": "Nashik", "hi": "नाशिक", "mr": "नाशिक" },
+    "acres": 3.0,
+    "water_source": "well",
+    "soil_type": "medium_black",
+    "language": "mr",
+    "season": "rabi",
+    "description": "Smallholder farmer in Nashik with 3 acres black loamy soil, dependent on open well irrigation."
+  },
+  {
+    "id": "rajesh",
+    "name": "Rajesh Kumar",
+    "district": "pune",
+    "district_display": { "en": "Pune", "hi": "पुणे", "mr": "पुणे" },
+    "acres": 4.0,
+    "water_source": "canal",
+    "soil_type": "alluvial_clay",
+    "language": "hi",
+    "season": "rabi",
+    "description": "Farmer in Pune district with 4 acres canal-fed land planning rabi crops."
+  },
+  {
+    "id": "john",
+    "name": "John D'Souza",
+    "district": "solapur",
+    "district_display": { "en": "Solapur", "hi": "सोलापूर", "mr": "सोलापूर" },
+    "acres": 2.5,
+    "water_source": "borewell",
+    "soil_type": "shallow_black",
+    "language": "en",
+    "season": "rabi",
+    "description": "Progressive farmer in Solapur managing 2.5 acres with borewell drip irrigation."
+  }
+]

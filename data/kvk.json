@@ -1,0 +1,37 @@
+{
+  "kisan_call_centre": {
+    "name": "Kisan Call Centre (Government of India)",
+    "toll_free": "1800-180-1551",
+    "timing": "6:00 AM - 10:00 PM (All 7 days)",
+    "languages": ["Marathi", "Hindi", "English"]
+  },
+  "kvk_centers": [
+    {
+      "district": "nashik",
+      "district_name": { "en": "Nashik", "hi": "नाशिक", "mr": "नाशिक" },
+      "kvk_name": "Krishi Vigyan Kendra, Yashwantrao Chavan Maharashtra Open University (YCMOU)",
+      "location": "Degaon, Nashik",
+      "phone": "+91-253-2231473",
+      "email": "kvk_nashik@rediffmail.com",
+      "university": "MPKV Rahuri / YCMOU"
+    },
+    {
+      "district": "pune",
+      "district_name": { "en": "Pune", "hi": "पुणे", "mr": "पुणे" },
+      "kvk_name": "Krishi Vigyan Kendra, Baramati",
+      "location": "Baramati, Pune",
+      "phone": "+91-2112-255227",
+      "email": "kvkbaramati@yahoo.com",
+      "university": "MPKV Rahuri"
+    },
+    {
+      "district": "solapur",
+      "district_name": { "en": "Solapur", "hi": "सोलापूर", "mr": "सोलापूर" },
+      "kvk_name": "Krishi Vigyan Kendra, Mohol",
+      "location": "Mohol, Solapur",
+      "phone": "+91-2189-232230",
+      "email": "kvkmohol@rediffmail.com",
+      "university": "MPKV Rahuri"
+    }
+  ]
+}

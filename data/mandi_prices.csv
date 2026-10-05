@@ -1,0 +1,50 @@
+date,market,district,commodity,min_price,max_price,modal_price
+2026-09-05,Lasalgaon,nashik,onion,1250,2100,1720
+2026-09-05,Nashik,nashik,onion,1300,2050,1700
+2026-09-05,Pimpalgaon,nashik,tomato,800,1600,1250
+2026-09-05,Pune Gultekdi,pune,wheat,2200,2800,2550
+2026-09-05,Baramati,pune,gram,5100,5800,5450
+2026-09-05,Solapur,solapur,rabi_jowar,2600,3400,3050
+2026-09-05,Solapur,solapur,safflower,4800,5500,5200
+2026-09-10,Lasalgaon,nashik,onion,1300,2150,1750
+2026-09-10,Nashik,nashik,onion,1320,2120,1740
+2026-09-10,Pimpalgaon,nashik,tomato,850,1650,1300
+2026-09-10,Pune Gultekdi,pune,wheat,2250,2850,2580
+2026-09-10,Baramati,pune,gram,5150,5850,5500
+2026-09-10,Solapur,solapur,rabi_jowar,2650,3450,3080
+2026-09-10,Solapur,solapur,safflower,4850,5550,5230
+2026-09-15,Lasalgaon,nashik,onion,1350,2200,1780
+2026-09-15,Nashik,nashik,onion,1360,2180,1770
+2026-09-15,Pimpalgaon,nashik,tomato,900,1700,1320
+2026-09-15,Pune Gultekdi,pune,wheat,2280,2880,2600
+2026-09-15,Baramati,pune,gram,5200,5900,5540
+2026-09-15,Solapur,solapur,rabi_jowar,2680,3480,3100
+2026-09-15,Solapur,solapur,safflower,4900,5600,5260
+2026-09-20,Lasalgaon,nashik,onion,1400,2250,1810
+2026-09-20,Nashik,nashik,onion,1410,2230,1800
+2026-09-20,Pimpalgaon,nashik,tomato,920,1750,1350
+2026-09-20,Pune Gultekdi,pune,wheat,2300,2900,2620
+2026-09-20,Baramati,pune,gram,5250,5950,5580
+2026-09-20,Solapur,solapur,rabi_jowar,2700,3500,3120
+2026-09-20,Solapur,solapur,safflower,4920,5620,5280
+2026-09-25,Lasalgaon,nashik,onion,1420,2280,1830
+2026-09-25,Nashik,nashik,onion,1430,2250,1820
+2026-09-25,Pimpalgaon,nashik,tomato,950,1800,1380
+2026-09-25,Pune Gultekdi,pune,wheat,2320,2920,2640
+2026-09-25,Baramati,pune,gram,5280,5980,5600
+2026-09-25,Solapur,solapur,rabi_jowar,2720,3520,3140
+2026-09-25,Solapur,solapur,safflower,4950,5650,5300
+2026-09-30,Lasalgaon,nashik,onion,1450,2300,1845
+2026-09-30,Nashik,nashik,onion,1460,2280,1840
+2026-09-30,Pimpalgaon,nashik,tomato,980,1820,1400
+2026-09-30,Pune Gultekdi,pune,wheat,2340,2940,2650
+2026-09-30,Baramati,pune,gram,5300,6000,5620
+2026-09-30,Solapur,solapur,rabi_jowar,2740,3540,3150
+2026-09-30,Solapur,solapur,safflower,4980,5680,5320
+2026-10-04,Lasalgaon,nashik,onion,1460,2350,1850
+2026-10-04,Nashik,nashik,onion,1470,2320,1845
+2026-10-04,Pimpalgaon,nashik,tomato,1000,1850,1420
+2026-10-04,Pune Gultekdi,pune,wheat,2350,2950,2660
+2026-10-04,Baramati,pune,gram,5320,6050,5640
+2026-10-04,Solapur,solapur,rabi_jowar,2750,3560,3160
+2026-10-04,Solapur,solapur,safflower,5000,5700,5350

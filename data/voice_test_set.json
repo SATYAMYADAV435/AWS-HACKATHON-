@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q1_grow",
+    "intent": "what_to_grow",
+    "crop": null,
+    "mr": "आता रब्बी हंगामात कोणते पीक घ्यावे?",
+    "hi": "अभी रबी के मौसम में कौन सी फसल लगाएं?",
+    "en": "Which crop should I grow in the current rabi season?"
+  },
+  {
+    "id": "q2_price_onion",
+    "intent": "prices",
+    "crop": "onion",
+    "mr": "नाशिक बाजारात कांद्याला आज काय भाव आहे?",
+    "hi": "नासिक मंडी में आज प्याज का क्या भाव है?",
+    "en": "What is today's onion mandi price in Nashik?"
+  },
+  {
+    "id": "q3_weather_spray",
+    "intent": "weather_today",
+    "crop": null,
+    "mr": "आज शेतात कीटकनाशक फवारणी करावी का?",
+    "hi": "क्या आज खेत में कीटनाशक छिड़काव कर सकते हैं?",
+    "en": "Can I spray pesticide in my field today?"
+  },
+  {
+    "id": "q4_guide_onion",
+    "intent": "how_to_grow",
+    "crop": "onion",
+    "mr": "रब्बी कांदा लागवड कशी करावी?",
+    "hi": "रबी प्याज की खेती कैसे करें?",
+    "en": "How to grow rabi onion?"
+  },
+  {
+    "id": "q5_guide_gram",
+    "intent": "how_to_grow",
+    "crop": "gram",
+    "mr": "हरभरा पिकासाठी खत व्यवस्थापन कसे करावे?",
+    "hi": "चने की फसल में खाद प्रबंधन कैसे करें?",
+    "en": "How to manage fertilizer for gram chickpea crop?"
+  },
+  {
+    "id": "q6_weather_rain",
+    "intent": "weather_today",
+    "crop": null,
+    "mr": "पुढील तीन दिवसांत पाऊस पडेल का?",
+    "hi": "क्या अगले तीन दिनों में बारिश होगी?",
+    "en": "Will it rain in the next three days?"
+  },
+  {
+    "id": "q7_price_gram",
+    "intent": "prices",
+    "crop": "gram",
+    "mr": "हरभऱ्याचा आजचा बाजारभाव काय आहे?",
+    "hi": "चने का आज का मंडी भाव क्या है?",
+    "en": "What is the current mandi market rate for gram?"
+  },
+  {
+    "id": "q8_grow_water",
+    "intent": "what_to_grow",
+    "crop": null,
+    "mr": "विहिरीला पाणी कमी असल्यास कोणते पीक योग्य राहील?",
+    "hi": "कुएं में पानी कम हो तो कौन सी फसल सही रहेगी?",
+    "en": "If well water is low, which crop is suitable to plant?"
+  },
+  {
+    "id": "q9_guide_wheat",
+    "intent": "how_to_grow",
+    "crop": "wheat",
+    "mr": "गहू पिकाची पेरणी कधी आणि कशी करावी?",
+    "hi": "गेहूं की बुवाई कब और कैसे करें?",
+    "en": "When and how should wheat be sown?"
+  },
+  {
+    "id": "q10_unknown",
+    "intent": "unknown",
+    "crop": null,
+    "mr": "शेतात ट्रॅक्टर खरेदीसाठी कर्ज कसे मिळेल?",
+    "hi": "ट्रैक्टर खरीदने के लिए लोन कैसे मिलेगा?",
+    "en": "How can I get a loan to buy a tractor?"
+  }
+]

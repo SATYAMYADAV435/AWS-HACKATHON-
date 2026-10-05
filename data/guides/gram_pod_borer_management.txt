@@ -1,0 +1,21 @@
+TITLE: Management of Helicoverpa Pod Borer in Chickpea (हरभरा घाटे अळी व्यवस्थापन)
+SOURCE: ICAR - National Research Centre for Integrated Pest Management (NCIPM) & MPKV
+DATE: 2024-08-10
+LINK: https://ncipm.icar.gov.in/chickpea-pod-borer-ipm
+REGION: Maharashtra
+SEASON: Rabi
+
+TARGET PEST:
+Gram Pod Borer (Helicoverpa armigera / घाटे अळी). Larvae feed on tender leaves, flower buds, and bore circular holes into developing pods, eating the green seeds inside.
+
+IPM STRATEGY:
+1. Deep Summer Ploughing: Exposes pupae to scorching sun and predatory birds.
+2. Intercropping: Intercrop with Coriander or Mustard (1 row for every 4-8 rows of chickpea) to attract beneficial parasitoids.
+3. Bird Perches: Install 'T'-shaped wooden bird perches @ 20-25 per acre to encourage insectivorous birds (e.g. Black Drongo).
+4. Pheromone Traps: Install 5 pheromone traps with Helilure per acre at 30 days after sowing for monitoring moth activity.
+5. Biological control:
+   * First spray at early larval stage (1st-2nd instar): Neem seed kernel extract (NSKE 5%) or Azadirachtin 1500 ppm @ 5 ml/litre.
+   * Nuclear Polyhedrosis Virus (HaNPV) @ 250 LE/acre or Bacillus thuringiensis (Bt) @ 2 g/litre.
+6. Chemical intervention (If ETL exceeds 1-2 larvae per meter row):
+   * Consult local KVK or agricultural officer for specific advice.
+   * Chlorantraniliprole 18.5 SC @ 0.3 ml/litre or Emamectin Benzoate 5 SG @ 0.4 g/litre.

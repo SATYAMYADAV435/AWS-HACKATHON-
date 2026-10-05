@@ -1,0 +1,20 @@
+TITLE: Integrated Pest & Disease Management in Rabi Onion (कांदा फुलकिडे आणि जांभळा करपा)
+SOURCE: ICAR - Directorate of Onion and Garlic Research (DOGR), Rajgurunagar, Pune
+DATE: 2024-07-15
+LINK: https://dogr.icar.gov.in/onion-crop-protection
+REGION: Maharashtra
+SEASON: Rabi
+
+MAJOR THREATS:
+1. Onion Thrips (थ्रिप्स / फुलकिडे): Sucking pests that cause silver patches on leaves, leaf curling, and stunted bulb growth.
+2. Purple Blotch (जांभळा करपा - Alternaria porri): Purple-brown sunken lesions on leaves, drying of foliage from leaf tip downwards.
+
+INTEGRATED MANAGEMENT (IPM):
+- Barrier crops: Plant 2 rows of maize or outer border of sorghum as barrier to block thrips movement.
+- Sticky traps: Install yellow and blue sticky traps @ 20 traps per acre.
+- Biological control: Spray Beauveria bassiana or Verticillium lecanii @ 5 g/litre of water at early pest occurrence.
+- Chemical intervention (Only if ETL crossed: > 15-20 thrips/plant):
+  * Consult local KVK before chemical spraying.
+  * Standard recommended sprays: Fipronil 5 SC @ 1 ml/litre or Spinosad 45 SC @ 0.3 ml/litre.
+  * For Purple Blotch: Mancozeb 75 WP @ 2.5 g/litre or Difenoconazole 25 EC @ 1 ml/litre with a sticker/spreader (Sandovit/Triton @ 0.5 ml/litre).
+- Spraying advice: Always spray in late afternoon under calm wind; never spray immediately before rain or during high mid-day heat.

@@ -1,0 +1,35 @@
+TITLE: Irrigated Wheat (गहू) Production Technology for Peninsular India
+SOURCE: ICAR - Indian Institute of Wheat and Barley Research (IIWBR) Karnal & MPKV Rahuri
+DATE: 2024-09-10
+LINK: https://iiwbr.icar.gov.in/wheat-peninsular-zone-package
+REGION: Maharashtra Peninsular Zone
+SEASON: Rabi (November - March)
+
+SOIL AND CLIMATE:
+Medium deep to heavy soils with good moisture retention capacity. Requires cool winters (12-25°C) and clear sunny weather during grain filling.
+
+RECOMMENDED VARIETIES:
+- Phule Samadhan (NIAW-1994): High yield, bold lustrous grain, resistant to stem and leaf rust.
+- Trimbak (NIAW-301): Well-adapted to Nashik and Western Maharashtra.
+- MACS 6222 / MACS 6478: High protein, good chapati quality.
+
+SOWING SCHEDULE:
+- Timely Sown: November 1 to November 15. Sowing after November 25 leads to terminal heat stress and shrivelled grains.
+- Spacing: 20-22.5 cm between rows.
+- Seed Rate: 40-45 kg per acre.
+- Seed Treatment: Azotobacter @ 250 g/10 kg seed + PSB @ 250 g/10 kg seed.
+
+CRITICAL IRRIGATION STAGES (CRI STAGES):
+Wheat requires 4 to 5 irrigations at key stages:
+1. Crown Root Initiation (CRI) stage: 18-21 days after sowing (Most critical).
+2. Tillering stage: 40-45 days.
+3. Late jointing / flowering stage: 60-65 days.
+4. Milk stage: 80-85 days.
+5. Dough / grain development: 95-100 days.
+
+FERTILIZER DOSES:
+- Recommended: 48 kg Nitrogen, 24 kg Phosphorus (P2O5), and 16 kg Potash (K2O) per acre.
+- Half N and all P & K at sowing; remaining half N top-dressed at first irrigation (CRI stage).
+
+ESTIMATED YIELD:
+16 to 22 quintals per acre under timely sown irrigated conditions.

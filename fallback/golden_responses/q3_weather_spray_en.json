@@ -1,0 +1,37 @@
+{
+  "title": "Weather & Spray Advisory",
+  "summary_lines": [
+    "Clear and dry weather expected across Nashik today.",
+    "Max temperature 29°C with wind speed around 9 km/h.",
+    "Weather conditions are favorable for spraying this afternoon."
+  ],
+  "steps": [
+    "1. Spray before 11 AM or after 3 PM when winds are gentle.",
+    "2. Always wear protective gloves and mask during application.",
+    "3. Check soil moisture and provide light irrigation if needed."
+  ],
+  "labels": [
+    "Forecast Indicative",
+    "Advisory Status"
+  ],
+  "sources": [
+    "India Meteorological Department (IMD)",
+    "Krishi Vigyan Kendra (KVK)"
+  ],
+  "speak_text": "Today the weather in Nashik is clear with low wind speeds. You can safely spray in the field this afternoon.",
+  "language": "en",
+  "metrics": [
+    {
+      "label": "Temperature",
+      "value": "28.5°C"
+    },
+    {
+      "label": "Wind",
+      "value": "9.2 km/h"
+    },
+    {
+      "label": "Spray Status",
+      "value": "✅ Favorable"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Mandi Market Prices (Nashik)",
+  "summary_lines": [
+    "Modal price for Onion in Nashik & Lasalgaon is ₹1,850 per quintal.",
+    "Minimum price ₹1,200 and maximum price ₹2,400 recorded.",
+    "Market sentiment is steady with moderate upward trend."
+  ],
+  "steps": [
+    "1. Grade onions by size and quality before taking to the mandi.",
+    "2. Ensure proper curing and drying to secure peak market rates.",
+    "3. Track daily APMC arrivals and rates."
+  ],
+  "labels": [
+    "Official APMC Rates",
+    "Representative Data"
+  ],
+  "sources": [
+    "Maharashtra State Agricultural Marketing Board (MSAMB)"
+  ],
+  "speak_text": "In Nashik mandi today, onion modal price is 1850 rupees per quintal. Prices are expected to remain steady.",
+  "language": "en",
+  "metrics": [
+    {
+      "label": "Modal Price",
+      "value": "₹5640/quintal"
+    },
+    {
+      "label": "Trend",
+      "value": "↗ Up / Stable"
+    },
+    {
+      "label": "Primary Mandi",
+      "value": "Lasalgaon"
+    }
+  ]
+}

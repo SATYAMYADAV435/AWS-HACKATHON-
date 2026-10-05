@@ -1,0 +1,26 @@
+{
+  "district": "nashik",
+  "latitude": 20.0,
+  "longitude": 73.78,
+  "current": {
+    "temperature_c": 28.5,
+    "condition": "Clear / Sunny",
+    "wind_speed_kmh": 9.2,
+    "humidity_pct": 46
+  },
+  "forecast_7d": [
+    { "day": "Day 1", "date": "2026-10-05", "temp_max": 31.0, "temp_min": 18.0, "rain_mm": 0.0, "wind_max_kmh": 10.5, "condition": "Sunny / Dry" },
+    { "day": "Day 2", "date": "2026-10-06", "temp_max": 31.5, "temp_min": 17.5, "rain_mm": 0.0, "wind_max_kmh": 9.8, "condition": "Clear Sky" },
+    { "day": "Day 3", "date": "2026-10-07", "temp_max": 30.8, "temp_min": 18.2, "rain_mm": 0.0, "wind_max_kmh": 8.4, "condition": "Clear Sky" },
+    { "day": "Day 4", "date": "2026-10-08", "temp_max": 30.0, "temp_min": 19.0, "rain_mm": 0.2, "wind_max_kmh": 11.0, "condition": "Partly Cloudy" },
+    { "day": "Day 5", "date": "2026-10-09", "temp_max": 29.5, "temp_min": 18.5, "rain_mm": 0.0, "wind_max_kmh": 12.0, "condition": "Partly Cloudy" },
+    { "day": "Day 6", "date": "2026-10-10", "temp_max": 30.2, "temp_min": 17.8, "rain_mm": 0.0, "wind_max_kmh": 9.5, "condition": "Sunny" },
+    { "day": "Day 7", "date": "2026-10-11", "temp_max": 31.0, "temp_min": 17.0, "rain_mm": 0.0, "wind_max_kmh": 8.8, "condition": "Sunny" }
+  ],
+  "advisory": {
+    "spray_flag": "green",
+    "spray_reason": "Zero rainfall expected and light wind speeds (< 12 km/h) make today ideal for pesticide spraying.",
+    "irrigation_advice": "Dry weather ahead; light irrigation recommended for seedling stage crops.",
+    "source": "Open-Meteo Weather Forecast Model"
+  }
+}

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>किसान मित्र — शेतीचा विश्वासू साथीदार | KisanMitra</title>
+  <meta name="description" content="KisanMitra: Voice-first agricultural advisor for Indian farmers in Marathi, Hindi, and English.">
+  <meta name="theme-color" content="#FAF6EE">
+
+  <!-- Google Fonts: Baloo 2 (Devanagari) & Outfit / Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       KisanMitra — Taste Skill: Modern Earth Bohemian (Agri-Boho)
+       Color tokens:
+       Canvas: #FAF6EE (Khadi paper)
+       Card: #FDFCFA / #FFFFFF (Border: #E8DEC8)
+       Terracotta: #C85A32 (Sun-baked clay)
+       Sage: #3B6938 (Neem foliage)
+       Ochre: #D99B26 (Harvest mustard)
+       Slate: #1E241E (High contrast charcoal)
+       ------------------------------------------------------------- */
+    :root {
+      --bg-canvas: #FAF6EE;
+      --bg-surface: #FDFCFA;
+      --bg-card: #FFFFFF;
+      --border-warm: #E8DEC8;
+      --border-subtle: #D8CEB9;
+      --accent-clay: #C85A32;
+      --accent-clay-hover: #AF4924;
+      --accent-sage: #3B6938;
+      --accent-sage-soft: #EBF2EB;
+      --accent-ochre: #D99B26;
+      --accent-ochre-soft: #FBF4E6;
+      --text-main: #1E241E;
+      --text-muted: #5A635A;
+      --shadow-tactile: 0 4px 14px rgba(60, 40, 20, 0.08);
+      --shadow-elevated: 0 12px 28px rgba(60, 40, 20, 0.12);
+      --font-stack: 'Baloo 2', 'Outfit', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      background-image: radial-gradient(#E8DEC8 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 20px 32px 20px;
+      position: relative;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .location-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-warm);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-sage);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      cursor: pointer;
+    }
+
+    .app-branding {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent-clay);
+      letter-spacing: -0.3px;
+    }
+
+    .lang-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .lang-segmented-pill {
+      display: flex;
+      background: #EFE8D8;
+      border: 1px solid var(--border-warm);
+      border-radius: 24px;
+      padding: 3px;
+      flex: 1;
+    }
+
+    .lang-opt {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 4px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      min-height: 44px;
+    }
+
+    .lang-opt.active {
+      background: var(--accent-clay);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(200, 90, 50, 0.25);
+    }
+
+    .audio-welcome-btn {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-warm);
+      color: var(--accent-clay);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-tactile);
+      transition: transform 0.15s ease;
+    }
+    .audio-welcome-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Hero Mic Section */
+    .hero-mic-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 0 16px 0;
+      position: relative;
+    }
+
+    .mic-outer-boundary {
+      width: 170px;
+      height: 170px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mic-button {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #D4633B 0%, #C85A32 100%);
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 8px 24px rgba(200, 90, 50, 0.35), inset 0 2px 4px rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      position: relative;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+    }
+
+    .mic-icon-svg {
+      width: 44px;
+      height: 44px;
+      fill: #FFFFFF;
+    }
+
+    /* Idle organic breathing pulse */
+    .mic-button.idle {
+      animation: micBreathe 2.8s ease-in-out infinite;
+    }
+
+    @keyframes micBreathe {
+      0%, 100% {
+        transform: scale(1.0);
+        box-shadow: 0 8px 24px rgba(200, 90, 50, 0.28);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 12px 32px rgba(200, 90, 50, 0.45);
+      }
+    }
+
+    /* Three Concentric Wave Ripple Rings (Active Listening) */
+    .ripple-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid var(--accent-clay);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .is-listening .ripple-ring.ring-1 {
+      animation: rippleExpand 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+    }
+    .is-listening .ripple-ring.ring-2 {
+      animation: rippleExpand 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) 0.5s infinite;
+    }
+    .is-listening .ripple-ring.ring-3 {
+      animation: rippleExpand 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) 1.0s infinite;
+    }
+
+    @keyframes rippleExpand {
+      0% {
+        width: 104px;
+        height: 104px;
+        opacity: 0.85;
+        transform: scale(1);
+      }
+      100% {
+        width: 260px;
+        height: 260px;
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    .mic-status-label {
+      margin-top: 14px;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Speech capture preview box */
+    .speech-preview-card {
+      display: none;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-warm);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-top: 12px;
+      box-shadow: var(--shadow-tactile);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .speech-preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-clay);
+      margin-bottom: 6px;
+    }
+
+    .speech-transcript-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      min-height: 28px;
+    }
+
+    .auto-send-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background: #EFE8D8;
+      border-radius: 2px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .auto-send-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent-clay);
+      transition: width 1.5s linear;
+    }
+
+    .cancel-speech-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Warning banner if mic blocked */
+    .mic-blocked-banner {
+      display: none;
+      background: #FFF3EB;
+      border: 1.5px solid #E4AA95;
+      color: #923415;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Clean Chat Bar */
+    .chat-section {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .chat-bar-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 30px;
+      padding: 4px 6px 4px 18px;
+      box-shadow: var(--shadow-tactile);
+      transition: border-color 0.2s;
+    }
+
+    .chat-bar-wrap:focus-within {
+      border-color: var(--accent-clay);
+    }
+
+    .chat-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 16px;
+      color: var(--text-main);
+      outline: none;
+      min-height: 48px;
+    }
+
+    .chat-input::placeholder {
+      color: #8C948C;
+    }
+
+    .chat-send-btn {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: var(--accent-clay);
+      border: none;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.2s;
+    }
+
+    .chat-send-btn:active {
+      transform: scale(0.92);
+      background: var(--accent-clay-hover);
+    }
+
+    /* Recommended prompt chips */
+    .chips-section {
+      margin-top: 14px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .chips-section::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chips-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-sage);
+      margin-right: 8px;
+    }
+
+    .prompt-chip {
+      display: inline-block;
+      background: #F0EAE1;
+      border: 1px solid var(--border-warm);
+      border-radius: 18px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-right: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      min-height: 38px;
+    }
+
+    .prompt-chip:active {
+      background: var(--accent-clay);
+      color: #FFFFFF;
+      border-color: var(--accent-clay);
+      transform: scale(0.96);
+    }
+
+    /* 2x2 Core Feature Grid */
+    .feature-grid-section {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-warm);
+      border-radius: 20px;
+      padding: 16px 14px;
+      min-height: 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: var(--shadow-tactile);
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s;
+    }
+
+    .feature-card:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 6px rgba(60, 40, 20, 0.04);
+    }
+
+    .feature-card-icon-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .badge-sage { background: #EAF2E9; }
+    .badge-amber { background: #FCF4E6; }
+    .badge-ochre { background: #FDF1D8; }
+    .badge-clay { background: #FCECE6; }
+
+    .feature-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    .feature-card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Thinking State Overlay / Cards */
+    .thinking-banner {
+      display: none;
+      margin-top: 16px;
+      background: #FAF3E6;
+      border: 1.5px solid #E6D4B5;
+      border-radius: 16px;
+      padding: 14px 16px;
+      animation: pulseGlow 1.8s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { background: #FAF3E6; }
+      to { background: #FFF9EE; }
+    }
+
+    .thinking-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-clay);
+      margin-bottom: 6px;
+    }
+    .thinking-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .spinner-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-clay);
+      animation: dotPulse 1.2s infinite ease-in-out;
+    }
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(0.6); opacity: 0.4; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* Result Advisory Bottom-Sheet Card */
+    .result-sheet-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(30, 36, 30, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 50;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0;
+    }
+
+    .result-sheet-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .result-bottom-sheet {
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      background: var(--bg-card);
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      border-top: 3px solid var(--accent-clay);
+      box-shadow: var(--shadow-elevated);
+      padding: 24px 20px 32px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .sheet-handle {
+      width: 44px;
+      height: 4px;
+      background: #D8CEB9;
+      border-radius: 2px;
+      align-self: center;
+      margin-bottom: 4px;
+    }
+
+    .result-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--accent-clay);
+      line-height: 1.25;
+    }
+
+    /* Audio First Bar */
+    .audio-player-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #F8EDE7;
+      border: 1px solid #E8C8BB;
+      border-radius: 16px;
+      padding: 10px 14px;
+    }
+
+    .listen-again-btn {
+      background: var(--accent-clay);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+    }
+
+    .audio-wave-anim {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 20px;
+    }
+
+    .wave-bar {
+      width: 3px;
+      height: 6px;
+      background: var(--accent-clay);
+      border-radius: 2px;
+    }
+    .is-playing .wave-bar:nth-child(1) { animation: soundBar 0.8s infinite 0.1s; }
+    .is-playing .wave-bar:nth-child(2) { animation: soundBar 0.8s infinite 0.3s; }
+    .is-playing .wave-bar:nth-child(3) { animation: soundBar 0.8s infinite 0.2s; }
+    .is-playing .wave-bar:nth-child(4) { animation: soundBar 0.8s infinite 0.4s; }
+
+    @keyframes soundBar {
+      0%, 100% { height: 6px; }
+      50% { height: 20px; }
+    }
+
+    /* Key Metric Badges */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .metric-badge {
+      background: #F6F1E6;
+      border: 1px solid var(--border-warm);
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .metric-badge.traffic-green {
+      background: #EBF7EB;
+      border: 1.5px solid #3B6938;
+    }
+    .metric-badge.traffic-green .metric-value {
+      color: #2E7D32;
+    }
+
+    .metric-badge.traffic-amber {
+      background: #FFF9E6;
+      border: 1.5px solid #D99B26;
+    }
+    .metric-badge.traffic-amber .metric-value {
+      color: #B57B14;
+    }
+
+    .metric-badge.traffic-red {
+      background: #FDF0EC;
+      border: 1.5px solid #C85A32;
+    }
+    .metric-badge.traffic-red .metric-value {
+      color: #AF4924;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .metric-value {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent-clay);
+    }
+
+    /* Summary Lines */
+    .summary-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .summary-line {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+
+    /* Actionable Steps */
+    .steps-section {
+      background: #FAF8F2;
+      border: 1px solid var(--border-warm);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .steps-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-sage);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      background: var(--accent-clay);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* Honesty Tagline */
+    .honesty-footer {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--border-warm);
+      padding-top: 10px;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    /* Quick Actions */
+    .quick-actions-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-action-primary {
+      flex: 1;
+      background: var(--accent-clay);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 16px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 56px;
+      box-shadow: 0 4px 12px rgba(200, 90, 50, 0.2);
+    }
+
+    .btn-action-secondary {
+      flex: 1;
+      background: #FFFFFF;
+      color: var(--accent-sage);
+      border: 1.5px solid var(--accent-sage);
+      border-radius: 16px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 56px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="location-row">
+        <div class="location-pill" id="district-pill">
+          <span>📍 नाशिक, महाराष्ट्र ▾</span>
+        </div>
+        <div class="app-branding" id="app-title">किसान मित्र</div>
+      </div>
+
+      <div class="lang-controls-row">
+        <div class="lang-segmented-pill">
+          <button class="lang-opt" data-lang="en" onclick="app.setLanguage('en')">English</button>
+          <button class="lang-opt" data-lang="hi" onclick="app.setLanguage('hi')">हिंदी</button>
+          <button class="lang-opt active" data-lang="mr" onclick="app.setLanguage('mr')">मराठी</button>
+        </div>
+        <button class="audio-welcome-btn" id="welcome-audio-btn" title="Speak Welcome" onclick="app.speakWelcomeGreeting()">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Mic Section -->
+    <main>
+      <section class="hero-mic-section">
+        <div class="mic-outer-boundary" id="mic-boundary">
+          <div class="ripple-ring ring-1"></div>
+          <div class="ripple-ring ring-2"></div>
+          <div class="ripple-ring ring-3"></div>
+
+          <button class="mic-button idle" id="hero-mic-btn" aria-label="Microphone" onclick="app.handleMicToggle()">
+            <svg class="mic-icon-svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mic-status-label" id="mic-status-text">बोला, आम्ही ऐकतोय...</div>
+
+        <!-- Mic Blocked Warning -->
+        <div class="mic-blocked-banner" id="mic-blocked-alert">
+          माइक सुरू नाही. खाली लिहून किंवा बटण दाबून विचारा.
+        </div>
+
+        <!-- Live Speech Preview & Auto-Send Card -->
+        <div class="speech-preview-card" id="speech-preview-card">
+          <div class="speech-preview-header">
+            <span id="speech-heard-label">आम्ही ऐकले:</span>
+            <button class="cancel-speech-btn" onclick="app.cancelSpeechInput()">रद्द करा (Cancel)</button>
+          </div>
+          <div class="speech-transcript-text" id="live-transcript-text">...</div>
+          <div class="auto-send-bar-wrap">
+            <div class="auto-send-bar-fill" id="auto-send-progress"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clean Chat Input Bar -->
+      <section class="chat-section">
+        <form class="chat-bar-wrap" onsubmit="event.preventDefault(); app.handleChatSubmit();">
+          <input type="text" class="chat-input" id="chat-input-field" placeholder="शेतीबद्दल काहीही विचारा..." autocomplete="off">
+          <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </section>
+
+      <!-- Search Inspiration Chips -->
+      <section class="chips-section" id="chips-carousel">
+        <span class="chips-label" id="chips-title">💡 विचारा:</span>
+        <div id="chips-container" style="display: inline-block;"></div>
+      </section>
+
+      <!-- Multi-Agent Thinking State Banner -->
+      <div class="thinking-banner" id="thinking-banner">
+        <div class="thinking-item">
+          <div class="spinner-dot"></div>
+          <span id="think-weather">हवामान अंदाज तपासत आहे...</span>
+        </div>
+        <div class="thinking-item">
+          <div class="spinner-dot"></div>
+          <span id="think-soil">जमीन व हंगाम तपासत आहे...</span>
+        </div>
+        <div class="thinking-item">
+          <div class="spinner-dot"></div>
+          <span id="think-market">मंडी बाजार भाव तपासत आहे...</span>
+        </div>
+      </div>
+
+      <!-- 2x2 Core Feature Grid -->
+      <section class="feature-grid-section">
+        <!-- What to Grow -->
+        <div class="feature-card" onclick="app.triggerFlow('what_to_grow')">
+          <div class="feature-card-icon-badge badge-sage">🌱</div>
+          <div>
+            <div class="feature-card-title" id="feat-grow-title">काय पिकवावे?</div>
+            <div class="feature-card-sub" id="feat-grow-sub">रब्बी नियोजन</div>
+          </div>
+        </div>
+
+        <!-- Weather Today -->
+        <div class="feature-card" onclick="app.triggerFlow('weather_today')">
+          <div class="feature-card-icon-badge badge-amber">🌦️</div>
+          <div>
+            <div class="feature-card-title" id="feat-weather-title">आजचे हवामान</div>
+            <div class="feature-card-sub" id="feat-weather-sub">फवारणी सल्ला</div>
+          </div>
+        </div>
+
+        <!-- Mandi Prices -->
+        <div class="feature-card" onclick="app.triggerFlow('prices')">
+          <div class="feature-card-icon-badge badge-ochre">💰</div>
+          <div>
+            <div class="feature-card-title" id="feat-price-title">बाजार भाव</div>
+            <div class="feature-card-sub" id="feat-price-sub">कांदा, हरभरा</div>
+          </div>
+        </div>
+
+        <!-- Crop Guide -->
+        <div class="feature-card" onclick="app.triggerFlow('how_to_grow')">
+          <div class="feature-card-icon-badge badge-clay">📖</div>
+          <div>
+            <div class="feature-card-title" id="feat-guide-title">लागवड माहिती</div>
+            <div class="feature-card-sub" id="feat-guide-sub">कृषी मार्गदर्शक</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Advisory Bottom-Sheet Overlay -->
+    <div class="result-sheet-overlay" id="result-overlay" onclick="app.handleOverlayClick(event)">
+      <div class="result-bottom-sheet" id="result-bottom-sheet">
+        <div class="sheet-handle"></div>
+
+        <div class="result-title" id="card-title">शेती सल्ला पत्रक</div>
+
+        <!-- Audio First Bar -->
+        <div class="audio-player-bar">
+          <button class="listen-again-btn" id="listen-again-btn" onclick="app.replayAudio()">
+            <span>🔊 पुन्हा ऐका</span>
+          </button>
+          <div class="audio-wave-anim" id="audio-wave-anim">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+        </div>
+
+        <!-- Key Metric Badges (Up to 3) -->
+        <div class="metrics-row" id="card-metrics-row"></div>
+
+        <!-- Concise Summary Lines -->
+        <div class="summary-box" id="card-summary-lines"></div>
+
+        <!-- Actionable Steps (Max 3) -->
+        <div class="steps-section" id="card-steps-section">
+          <div class="steps-title" id="steps-header">महत्त्वाच्या कृती:</div>
+          <div id="card-steps-list"></div>
+        </div>
+
+        <!-- Honesty Tagline -->
+        <div class="honesty-footer" id="card-honesty-tag">
+          स्रोत: महात्मा फुले कृषी विद्यापीठ (MPKV) | प्रातिनिधिक माहिती, अंदाज नाही.
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions-row">
+          <a href="tel:18001801551" class="btn-action-secondary" id="btn-call-kvk">
+            <span>📞 केव्हीके कॉल</span>
+          </a>
+          <button class="btn-action-primary" onclick="app.closeResultAndAskAgain()" id="btn-ask-another">
+            <span>🎙️ दुसरा प्रश्न</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="speech.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

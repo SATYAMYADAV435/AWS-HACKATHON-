@@ -1,0 +1,22 @@
+{
+  "district": "pune",
+  "latitude": 18.52,
+  "longitude": 73.85,
+  "current": {
+    "temperature_c": 29.0,
+    "condition": "Clear",
+    "wind_speed_kmh": 10.0,
+    "humidity_pct": 48
+  },
+  "forecast_7d": [
+    { "day": "Day 1", "date": "2026-10-05", "temp_max": 30.5, "temp_min": 19.0, "rain_mm": 0.0, "wind_max_kmh": 11.0, "condition": "Clear Sky" },
+    { "day": "Day 2", "date": "2026-10-06", "temp_max": 31.0, "temp_min": 18.8, "rain_mm": 0.0, "wind_max_kmh": 10.5, "condition": "Clear Sky" },
+    { "day": "Day 3", "date": "2026-10-07", "temp_max": 30.2, "temp_min": 19.5, "rain_mm": 0.0, "wind_max_kmh": 9.0, "condition": "Clear" }
+  ],
+  "advisory": {
+    "spray_flag": "green",
+    "spray_reason": "Dry and calm conditions favorable for field operations.",
+    "irrigation_advice": "Maintain normal irrigation schedules.",
+    "source": "Open-Meteo Weather Forecast Model"
+  }
+}

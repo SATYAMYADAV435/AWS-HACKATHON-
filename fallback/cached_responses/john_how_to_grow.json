@@ -1,0 +1,36 @@
+{
+  "title": "Crop Management Guide (Rabi Onion)",
+  "summary_lines": [
+    "Complete rabi onion transplanting between October and November.",
+    "Select well-drained medium to deep black fertile soil.",
+    "Apply balanced FYM organic manure and recommended basal fertilizers."
+  ],
+  "steps": [
+    "1. Incorporate 10-12 tonnes per acre of well-rotted farmyard manure.",
+    "2. Transplant 45-day seedlings on raised beds at 15x10 cm spacing.",
+    "3. Carry out light weeding and mulching in the initial 30 days."
+  ],
+  "labels": [
+    "Package of Practices",
+    "University Recommended"
+  ],
+  "sources": [
+    "Mahatma Phule Krishi Vidyapeeth (MPKV) Rahuri"
+  ],
+  "speak_text": "For rabi onion cultivation, ensure fertile well-drained soil and timely transplantation on raised beds.",
+  "language": "en",
+  "metrics": [
+    {
+      "label": "Advisory Status",
+      "value": "प्रमाणित"
+    },
+    {
+      "label": "Season",
+      "value": "रब्बी २०२६"
+    },
+    {
+      "label": "Region",
+      "value": "महाराष्ट्र"
+    }
+  ]
+}

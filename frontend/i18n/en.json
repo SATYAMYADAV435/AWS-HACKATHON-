@@ -1,0 +1,43 @@
+{
+  "app_title": "KisanMitra",
+  "app_subtitle": "Your Trusted Farming Companion",
+  "active_district": "📍 Nashik, Maharashtra ▾",
+  "welcome_greeting": "Welcome to KisanMitra. Speak your question or tap any of the feature cards below.",
+  "mic_idle_label": "Speak, we are listening...",
+  "mic_listening_label": "Listening... Speak now!",
+  "mic_heard_label": "We heard:",
+  "mic_thinking_label": "Gathering farm advisory...",
+  "mic_blocked_warning": "Microphone blocked. Please type below or tap an action card.",
+  "chat_placeholder": "Ask anything about your farm...",
+  "chat_send_btn": "Send",
+  "prompts_title": "💡 Try asking:",
+  "prompts": [
+    "What crop to grow now?",
+    "Today's onion mandi price",
+    "Can I spray pesticide today?"
+  ],
+  "feature_grid": {
+    "grow_title": "What to Grow",
+    "grow_sub": "Rabi Planning",
+    "weather_title": "Weather Today",
+    "weather_sub": "Spray Advisory",
+    "price_title": "Mandi Prices",
+    "price_sub": "Onion, Gram rates",
+    "guide_title": "Crop Guide",
+    "guide_sub": "Cultivation Handbook"
+  },
+  "thinking": {
+    "weather": "Checking live weather forecast...",
+    "soil": "Analyzing soil and season profile...",
+    "market": "Querying APMC mandi rates..."
+  },
+  "result": {
+    "listen_again": "🔊 Listen Again",
+    "stop_audio": "⏹️ Stop Audio",
+    "steps_title": "Actionable Steps:",
+    "honesty_tag": "Indicative only, not a forecast. Consult your local KVK for field confirmation.",
+    "call_kvk": "📞 Call KVK",
+    "ask_another": "🎙️ Ask Another Question",
+    "auto_sending": "Auto-sending in... "
+  }
+}

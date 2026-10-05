@@ -1,0 +1,36 @@
+{
+  "title": "KisanMitra Capabilities",
+  "summary_lines": [
+    "I am specialized in farming advice, weather forecasts, mandi prices, and crop guides.",
+    "Please ask an agricultural query like 'What crop to grow now?' or 'Today's onion price'.",
+    "Or tap any of the 4 quick feature cards below."
+  ],
+  "steps": [
+    "1. Tap 'What to Grow' for rabi crop recommendations.",
+    "2. Tap 'Weather Today' for spray advisory.",
+    "3. Tap 'Mandi Prices' for live APMC market rates."
+  ],
+  "labels": [
+    "Capabilities",
+    "Help"
+  ],
+  "sources": [
+    "KisanMitra System Guide"
+  ],
+  "speak_text": "I can help with crop planning, weather, mandi rates, and crop guides. Please select one of the feature cards below.",
+  "language": "en",
+  "metrics": [
+    {
+      "label": "Service",
+      "value": "Farming"
+    },
+    {
+      "label": "Weather",
+      "value": "Active"
+    },
+    {
+      "label": "Mandi",
+      "value": "Active"
+    }
+  ]
+}

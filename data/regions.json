@@ -1,0 +1,48 @@
+{
+  "districts": [
+    {
+      "id": "nashik",
+      "name": { "en": "Nashik", "hi": "नाशिक", "mr": "नाशिक" },
+      "state": "Maharashtra",
+      "climate_zone": "Western Maharashtra Sub-Danube Transition Zone",
+      "typical_soils": ["medium_black", "light_black", "sandy_loam"],
+      "annual_rainfall_mm": 720,
+      "coordinates": { "latitude": 20.0, "longitude": 73.78 },
+      "major_rabi_crops": ["onion", "gram", "wheat", "tomato"],
+      "primary_markets": ["Lasalgaon", "Nashik", "Pimpalgaon Baswant"]
+    },
+    {
+      "id": "pune",
+      "name": { "en": "Pune", "hi": "पुणे", "mr": "पुणे" },
+      "state": "Maharashtra",
+      "climate_zone": "Ghat Transition & Scarcity Zone",
+      "typical_soils": ["medium_black", "alluvial_clay", "light_black"],
+      "annual_rainfall_mm": 680,
+      "coordinates": { "latitude": 18.52, "longitude": 73.85 },
+      "major_rabi_crops": ["onion", "gram", "wheat", "rabi_jowar"],
+      "primary_markets": ["Pune Gultekdi", "Baramati", "Manchar"]
+    },
+    {
+      "id": "solapur",
+      "name": { "en": "Solapur", "hi": "सोलापूर", "mr": "सोलापूर" },
+      "state": "Maharashtra",
+      "climate_zone": "Western Maharashtra Scarcity / Drought Prone Zone",
+      "typical_soils": ["deep_black", "shallow_black", "medium_black"],
+      "annual_rainfall_mm": 540,
+      "coordinates": { "latitude": 17.67, "longitude": 75.9 },
+      "major_rabi_crops": ["rabi_jowar", "gram", "safflower"],
+      "primary_markets": ["Solapur", "Karmala", "Barshi"]
+    },
+    {
+      "id": "ahmednagar",
+      "name": { "en": "Ahmednagar (Ahilyanagar)", "hi": "अहिल्यानगर", "mr": "अहिल्यानगर" },
+      "state": "Maharashtra",
+      "climate_zone": "Central Scarcity Zone",
+      "typical_soils": ["medium_black", "light_black", "deep_black"],
+      "annual_rainfall_mm": 510,
+      "coordinates": { "latitude": 19.09, "longitude": 74.74 },
+      "major_rabi_crops": ["gram", "rabi_jowar", "onion", "safflower"],
+      "primary_markets": ["Ahmednagar", "Rahata", "Sangamner"]
+    }
+  ]
+}
