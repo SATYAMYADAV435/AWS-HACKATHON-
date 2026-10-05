@@ -90,7 +90,8 @@ def invoke_model(
     Invoke Bedrock model with fallback chain:
     Primary Model -> Fallback Model -> Cached/Simulated fallback.
     """
-    if USE_CACHE:
+    use_cache = os.environ.get("USE_CACHE", "false").lower() in ("true", "1", "yes")
+    if use_cache:
         logger.info("USE_CACHE=true active: bypassing live Bedrock API call.")
         return _cached_or_simulated_llm(prompt, system_prompt)
 
@@ -116,7 +117,11 @@ def invoke_model(
                 body_bytes = response["body"].read()
                 return _parse_response(current_model, body_bytes.decode("utf-8"))
             except Exception as exc:
+                exc_str = str(exc)
                 logger.warning(f"Bedrock call attempt {attempt+1} failed on {current_model}: {exc}")
+                if "Unable to locate credentials" in exc_str or "NoCredentialsError" in exc_str:
+                    logger.info("No AWS credentials configured; immediately falling back to simulated response.")
+                    return _cached_or_simulated_llm(prompt, system_prompt)
                 time.sleep(0.5 * (attempt + 1))
 
     logger.warning("All Bedrock model attempts failed; falling back to cached response.")

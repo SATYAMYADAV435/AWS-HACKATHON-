@@ -33,12 +33,16 @@ def run_market_agent(profile: FarmerProfile, crop: Optional[str] = "onion") -> A
         f"गेल्या ३० दिवसांत बाजारभाव कल {direction} ({trend_sign}{pct_change}%) राहिला आहे."
     )
 
+    source_name = price_info.get("source", "MSAMB Archives")
+    data_source = "agmarknet" if "Agmarknet" in source_name else "csv"
+
     evidence = [
         f"Commodity: {target_crop}",
         f"Market: {market}",
         f"Modal Price: ₹{modal_price}/quintal",
         f"Min-Max Range: ₹{price_info.get('min_price', 1200)} - ₹{price_info.get('max_price', 2200)}",
-        f"30-day Trend: {direction} ({trend_sign}{pct_change}%)"
+        f"30-day Trend: {direction} ({trend_sign}{pct_change}%)",
+        f"Data Source: {source_name}"
     ]
 
     return AgentResult(
@@ -46,6 +50,6 @@ def run_market_agent(profile: FarmerProfile, crop: Optional[str] = "onion") -> A
         finding=finding[:400],
         risk=risk,
         evidence=evidence,
-        data_source="csv",
+        data_source=data_source,
         next_check="Check daily APMC closing rate"
     )

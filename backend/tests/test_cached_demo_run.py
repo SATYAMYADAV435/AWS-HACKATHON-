@@ -20,8 +20,9 @@ def demo_profiles():
     with open(PROFILES_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def test_full_cached_demo_personas_and_flows(demo_profiles):
+def test_full_cached_demo_personas_and_flows(demo_profiles, monkeypatch):
     """Verify all 3 personas run through all 4 flows producing valid AnswerCards."""
+    monkeypatch.setenv("USE_CACHE", "true")
     for p in demo_profiles:
         persona_id = p["id"]
         lang = p["language"]

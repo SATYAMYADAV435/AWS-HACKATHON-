@@ -24,11 +24,14 @@ def run_weather_agent(profile: FarmerProfile, crop: Optional[str] = None) -> Age
     source = advisory.get("source", "open-meteo")
     data_source = "open-meteo" if "Live" in source else "cache"
 
-    finding = f"{advisory.get('spray_reason', 'हवामान अनुकूल आहे.')} {advisory.get('irrigation_advice', '')}".strip()
+    soil_temp = current.get("soil_temperature_0cm", temp - 1.5)
+    soil_advice = advisory.get("soil_advice", "")
+    finding = f"{advisory.get('spray_reason', 'हवामान अनुकूल आहे.')} {soil_advice} {advisory.get('irrigation_advice', '')}".strip()
 
     evidence = [
         f"District: {district.capitalize()}",
         f"Current Temp: {temp}°C",
+        f"Soil Temp (0cm): {soil_temp}°C",
         f"Wind Speed: {wind} km/h",
         f"Spray Condition: {spray_flag.upper()}"
     ]
