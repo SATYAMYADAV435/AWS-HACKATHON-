@@ -1,43 +1,62 @@
 /* =============================================================
-   KisanMitra — Premium Modern Agricultural Design System
-   Aesthetic: Fresh Emerald & Mint Hues with Soft Khadi Paper Accents
-   Palette:
-   Canvas: #F2FAF4 -> #FAFCF9 soft gradient
-   Cards: #FFFFFF with subtle #D9EFE0 border
-   Brand Primary: #1B5E38 (Forest Emerald)
-   Brand Accent: #C85A32 (Sun-Baked Terracotta)
-   Brand Warning: #D97706 (Harvest Ochre)
-   Brand Mint Light: #ECFDF5 / #DCFCE7
-   Typography: 'Outfit', 'Baloo 2', system-ui, sans-serif
+   KisanMitra — Modern Earth Bohemian (Agri-Boho) Design System
+   Per taste-skill: Natural Farm Green, Warm Khadi Canvas, Sun-Baked Terracotta
+   Aesthetic:
+   Canvas: Warm unbleached paper / khadi (#FAF6EE -> #F5EFE0)
+   Cards: Warm cream (#FDFCFA / #FFFFFF) with soft earthy jute borders (#E8DEC8)
+   Brand Primary: Natural Farm Green (#2D5A27 / #3B6938)
+   Accents: Terracotta Clay (#C85A32) & Harvest Ochre (#D99B26)
+   Text: Charcoal Slate (#1E241E, WCAG AAA compliant)
+   Typography: 'Outfit', 'Baloo 2', 'Noto Sans Devanagari'
    ============================================================= */
 
 :root {
-  --bg-canvas: #F4FAF5;
-  --bg-canvas-subtle: #FAFCF9;
+  /* Tactile Materiality Canvas */
+  --bg-canvas: #FAF6EE;
+  --bg-canvas-subtle: #F5EFE0;
   --bg-card: #FFFFFF;
-  --bg-mint-soft: #F0FDF4;
-  --bg-mint-medium: #DCFCE7;
-  --bg-mint-badge: #E6F7ED;
-  --border-mint: #D1EAD8;
-  --border-mint-hover: #A7DFB8;
-  --border-warm: #E4DCD0;
-  --accent-forest: #1B5E38;
-  --accent-forest-dark: #134629;
-  --accent-emerald: #059669;
+  --bg-card-warm: #FDFCFA;
+  --border-jute: #E8DEC8;
+  --border-jute-hover: #D4C6A9;
+  --border-warm: #E2D7C2;
+
+  /* Primary Natural Green (Deep Farm Sage & Neem Foliage) */
+  --accent-forest: #2D5A27;
+  --accent-forest-dark: #1E441A;
+  --accent-emerald: #3B6938;
+  --accent-leaf: #4A7C46;
+  --bg-mint-soft: #EDF5EC;
+  --bg-mint-medium: #DCECDC;
+  --bg-mint-badge: #E3EFE2;
+  --border-mint: #C8DEC6;
+  --border-mint-hover: #A6CBA3;
+
+  /* Bohemian Earthy Accents */
   --accent-clay: #C85A32;
   --accent-clay-hover: #AF4924;
-  --accent-ochre: #D97706;
-  --accent-ochre-light: #FEF3C7;
-  --accent-red: #DC2626;
-  --accent-red-light: #FEE2E2;
-  --text-main: #132418;
-  --text-muted: #4B5E50;
-  --text-light: #7A8E7F;
-  --shadow-soft: 0 4px 18px rgba(27, 94, 56, 0.06);
-  --shadow-card: 0 6px 24px rgba(20, 60, 35, 0.07);
-  --shadow-modal: 0 20px 50px rgba(15, 45, 25, 0.25);
-  --shadow-glow: 0 0 16px rgba(16, 185, 129, 0.2);
-  --font-stack: 'Outfit', 'Baloo 2', system-ui, -apple-system, sans-serif;
+  --accent-clay-light: #FBEFEA;
+  --border-clay: #E8BFB0;
+
+  --accent-ochre: #D99B26;
+  --accent-ochre-light: #FBF5E6;
+  --border-ochre: #ECCF8D;
+
+  --accent-red: #C53030;
+  --accent-red-light: #FDE8E8;
+
+  /* Typography & High Contrast Slate */
+  --text-main: #1E241E;
+  --text-muted: #4B5548;
+  --text-light: #738070;
+
+  /* Shadows with organic warm ambient glow */
+  --shadow-soft: 0 4px 18px rgba(45, 90, 39, 0.07);
+  --shadow-card: 0 6px 22px rgba(40, 50, 35, 0.08);
+  --shadow-modal: 0 20px 60px rgba(30, 36, 30, 0.32);
+  --shadow-mic-idle: 0 10px 30px rgba(45, 90, 39, 0.3), 0 4px 12px rgba(200, 90, 50, 0.2);
+
+  --font-stack: 'Outfit', 'Baloo 2', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+  --font-devanagari: 'Baloo 2', 'Noto Sans Devanagari', cursive, sans-serif;
 }
 
 * {
@@ -50,12 +69,12 @@
 body {
   background-color: var(--bg-canvas);
   background-image: 
-    radial-gradient(#D4ECD9 0.85px, transparent 0.85px),
-    linear-gradient(180deg, #F0FDF4 0%, #FAFDF9 40%, #F4FAF5 100%);
-  background-size: 20px 20px, 100% 100%;
+    radial-gradient(#E8DEC8 0.9px, transparent 0.9px),
+    linear-gradient(180deg, #FAF6EE 0%, #F5EFE0 50%, #FAF6EE 100%);
+  background-size: 24px 24px, 100% 100%;
   color: var(--text-main);
   font-family: var(--font-stack);
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.5;
   min-height: 100dvh;
   display: flex;
@@ -1279,81 +1298,184 @@ body {
   background: #FFFFFF;
 }
 
-/* Visual Card Choice Selectors */
+/* Visual Card Choice Selectors with ≥ 56px touch target */
 .choice-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
+}
+
+.choice-cards-grid.three-col {
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .choice-card-item {
-  background: #F4FAF5;
-  border: 1.5px solid var(--border-mint);
-  border-radius: 14px;
-  padding: 11px 8px;
+  background: var(--bg-card-warm);
+  border: 1.5px solid var(--border-jute);
+  border-radius: 16px;
+  padding: 12px 10px;
+  min-height: 64px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
 }
 
-.choice-card-item:hover, .choice-card-item.selected {
-  border-color: var(--accent-emerald);
-  background: #DCFCE7;
+.choice-card-item:hover {
+  border-color: var(--border-mint-hover);
+  background: var(--bg-mint-soft);
+}
+
+.choice-card-item.selected {
+  border-color: var(--accent-forest);
+  background: var(--bg-mint-soft);
   color: var(--accent-forest);
+  box-shadow: 0 4px 14px rgba(45, 90, 39, 0.16);
+  transform: translateY(-1px);
 }
 
 .choice-card-icon {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 4px;
 }
 
 .choice-card-label {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 800;
+  line-height: 1.25;
+}
+
+.choice-card-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 2px;
 }
 
 .helper-note {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--text-muted);
-  margin-top: 5px;
-  line-height: 1.35;
+  background: var(--bg-canvas-subtle);
+  border: 1px dashed var(--border-jute);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  line-height: 1.4;
 }
 
-/* Multi-step survey buttons */
+/* Multi-step survey buttons with 56px tactile touch target */
 .wizard-nav-row {
   display: flex;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .btn-secondary {
   flex: 1;
-  background: #EAF5ED;
-  border: 1px solid var(--border-mint);
-  color: var(--accent-forest);
-  border-radius: 14px;
-  padding: 12px;
+  min-height: 56px;
+  background: var(--bg-canvas-subtle);
+  border: 1.5px solid var(--border-jute);
+  color: var(--text-main);
+  border-radius: 16px;
+  padding: 12px 16px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: #EFE6D6;
+  border-color: var(--border-jute-hover);
 }
 
 .btn-primary {
   flex: 2;
+  min-height: 56px;
   background: var(--accent-forest);
   border: none;
   color: #FFFFFF;
-  border-radius: 14px;
-  padding: 12px;
+  border-radius: 16px;
+  padding: 12px 16px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   cursor: pointer;
-  transition: background-color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(45, 90, 39, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .btn-primary:hover {
-  background: var(--accent-emerald);
+  background: var(--accent-forest-dark);
+  box-shadow: 0 6px 20px rgba(45, 90, 39, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-demo-bypass {
+  min-height: 56px;
+  background: var(--accent-clay-light);
+  border: 2px dashed var(--accent-clay);
+  color: var(--accent-clay);
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.btn-demo-bypass:hover {
+  background: #F8E2D8;
+  border-color: var(--accent-clay-hover);
+  color: var(--accent-clay-hover);
+}
+
+/* Soil Test DIY Card */
+.soil-test-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-jute);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.soil-test-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-forest);
+  margin-bottom: 8px;
+}
+
+.soil-test-badge {
+  background: var(--bg-mint-badge);
+  color: var(--accent-forest);
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 /* Result Bottom Sheet */

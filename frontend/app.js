@@ -7,7 +7,7 @@
 class KisanApp {
   constructor() {
     this.currentLanguage = 'en';
-    this.activeTab = 'hub';
+    this.activeTab = 'voice'; // Primary Home Page is Mic Advisor
     this.speech = new KisanSpeech();
     this.dataManager = window.kisanData;
     this.i18nData = {};
@@ -50,20 +50,22 @@ class KisanApp {
     // Check if farms exist in dataManager
     let farms = this.dataManager.getFarms();
     if (farms.length === 0) {
-      // Seed default initial farm
+      // Seed default initial farm (Sunita Patil - Nashik Onion)
       await this.dataManager.saveFarm({
-        name: 'Farm 1',
+        name: "Sunita Patil's Farm",
         state: 'Maharashtra',
         district: 'nashik',
         locality: 'Niphad, Gat No. 42',
         acres: 3.0,
         soil_type: 'medium_black',
+        drainage: 'balanced',
         soil_ph: '6.8',
         soil_quality: 'good',
         water_source: 'well',
         irrigation_type: 'drip',
         current_crop: 'onion',
-        crop_stage: 'vegetative'
+        crop_stage: 'vegetative',
+        fertilizer_history: 'organic_mixed'
       });
       farms = this.dataManager.getFarms();
     }
@@ -72,11 +74,12 @@ class KisanApp {
     this.updateActiveFarmUI();
     this.setLanguage(this.currentLanguage);
     await this.refreshFarmIntelligence();
+    this.switchTab('voice');
 
-    // If first launch (no saved language preference), show welcome language selection modal immediately
-    if (!savedLang) {
-      this.openModal('first-launch-lang-modal');
-    }
+    // Per user requirement: Always start with Auth & Survey gateway on launch
+    setTimeout(() => {
+      this.openModal('auth-modal');
+    }, 300);
   }
 
   /* ---------------- Regional & I18N Data ---------------- */
@@ -219,6 +222,12 @@ class KisanApp {
     this._setText('hub-alerts-heading', t('hub.alerts_title', '⚠️ Priority Alerts'));
     this._setText('hub-recommendations-heading', t('hub.recommendations_title', "💡 Today's Tailored Actions"));
     this._setText('hub-soil-advice-heading', t('hub.soil_advice_title', '🌱 Soil & Nutrient Guidance:'));
+    this._setText('hub-profile-heading', t('hub.profile_heading', 'Farmer Soil & Field Diagnosis'));
+    this._setText('hub-retake-survey-btn', t('hub.retake_survey_btn', 'Edit Soil Survey'));
+    this._setText('hub-diy-ribbon-lbl', t('hub.diy_ribbon_lbl', '🏺 Soil Texture (Ribbon)'));
+    this._setText('hub-diy-drainage-lbl', t('hub.diy_drainage_lbl', '💧 Infiltration / Drainage'));
+    this._setText('hub-diy-water-lbl', t('hub.diy_water_lbl', '🚰 Water Source'));
+    this._setText('hub-diy-manure-lbl', t('hub.diy_manure_lbl', '🌿 Fertilizer Practice'));
 
     // Tab 2: Voice & Assistant
     this._setText('mic-status-text', this.isListening ? t('mic_listening_label', 'Listening... Speak now!') : t('mic_idle_label', 'Speak, we are listening...'));
@@ -422,6 +431,28 @@ class KisanApp {
       const cropPrefix = this.currentLanguage === 'en' ? 'Crop' : this.currentLanguage === 'hi' ? 'फसल' : 'पीक';
       const stagePrefix = this.currentLanguage === 'en' ? 'Stage' : this.currentLanguage === 'hi' ? 'अवस्था' : 'अवस्था';
       cropMetaEl.innerText = `${cropPrefix}: ${cropLabel} • ${stagePrefix}: ${stageLabel}`;
+    }
+
+    // Update Farmer Soil & Field Diagnosis Card Values
+    const diySoilEl = document.getElementById('hub-diy-soil-val');
+    if (diySoilEl) {
+      const sKey = farm.soil_type || 'medium_black';
+      diySoilEl.innerText = t(`survey.soil_${sKey}`, sKey.replace('_', ' '));
+    }
+    const diyDrainageEl = document.getElementById('hub-diy-drainage-val');
+    if (diyDrainageEl) {
+      const dKey = farm.drainage || 'balanced';
+      diyDrainageEl.innerText = t(`survey.drainage_${dKey}`, dKey.replace('_', ' '));
+    }
+    const diyWaterEl = document.getElementById('hub-diy-water-val');
+    if (diyWaterEl) {
+      const wKey = farm.water_source || 'well';
+      diyWaterEl.innerText = t(`survey.water_${wKey}`, wKey);
+    }
+    const diyManureEl = document.getElementById('hub-diy-manure-val');
+    if (diyManureEl) {
+      const fKey = farm.fertilizer_history || 'organic_mixed';
+      diyManureEl.innerText = t(`survey.fertilizer_${fKey}`, fKey.replace('_', ' '));
     }
   }
 
@@ -711,38 +742,67 @@ class KisanApp {
   }
 
   async submitFarmSurvey() {
-    const name = document.getElementById('survey-farm-name').value.trim() || 'Farm 1';
-    const state = document.getElementById('survey-state').value;
-    const district = document.getElementById('survey-district').value;
-    const locality = document.getElementById('survey-locality').value.trim();
-    const acres = parseFloat(document.getElementById('survey-acres').value || 3.0);
+    const name = (document.getElementById('survey-farm-name') ? document.getElementById('survey-farm-name').value.trim() : '') || 'Farm 1';
+    const state = document.getElementById('survey-state') ? document.getElementById('survey-state').value : 'Maharashtra';
+    const district = document.getElementById('survey-district') ? document.getElementById('survey-district').value : 'nashik';
+    const locality = document.getElementById('survey-locality') ? document.getElementById('survey-locality').value.trim() : '';
+    const acres = parseFloat((document.getElementById('survey-acres') ? document.getElementById('survey-acres').value : '') || 3.0);
 
     const soilType = this.getSurveyChoiceValue('survey-soil-grid', 'medium_black');
-    const soilPh = this.getSurveyChoiceValue('survey-ph-grid', '6.8');
+    const drainage = this.getSurveyChoiceValue('survey-drainage-grid', 'balanced');
     const waterSource = this.getSurveyChoiceValue('survey-water-grid', 'well');
-    const irrigation = document.getElementById('survey-irrigation').value;
+    const irrigation = document.getElementById('survey-irrigation') ? document.getElementById('survey-irrigation').value : 'drip';
 
     const crop = this.getSurveyChoiceValue('survey-crop-grid', 'onion');
     const stage = this.getSurveyChoiceValue('survey-stage-grid', 'vegetative');
+    const fertilizer = document.getElementById('survey-fertilizer') ? document.getElementById('survey-fertilizer').value : 'organic_mixed';
 
-    const newFarm = await this.dataManager.saveFarm({
+    // Calculate DIY Soil Diagnostic Score & Agronomic Recommendations
+    let soilScore = 85;
+    let soilAdvice = "Balanced soil condition. Continue applying decomposed compost.";
+
+    if (soilType === 'medium_black') {
+      soilScore = drainage === 'balanced' ? 88 : drainage === 'slow_pooling' ? 78 : 82;
+      soilAdvice = "Black Cotton Soil: High natural moisture retention. Ideal for Rabi Onion & Gram. Maintain 3-day drip interval.";
+    } else if (soilType === 'alluvial_clay') {
+      soilScore = 92;
+      soilAdvice = "Fertile Alluvial Loam: Excellent balanced root aeration. High nutrient uptake for Wheat & Vegetables.";
+    } else if (soilType === 'sandy_loam') {
+      soilScore = 76;
+      soilAdvice = "Sandy / Light Soil: Fast drainage. Add cow dung manure and mulch to prevent rapid moisture loss.";
+    } else if (soilType === 'red') {
+      soilScore = 82;
+      soilAdvice = "Red Gravelly Soil: Good aeration, moderate fertility. Supplement with organic compost and balanced NPK.";
+    }
+
+    if (drainage === 'slow_pooling') {
+      soilAdvice += " Note: Water pooling observed — use raised beds (गादी वाफा) to avoid root rot.";
+    }
+
+    await this.dataManager.saveFarm({
       name,
       state,
       district,
       locality,
       acres,
       soil_type: soilType,
-      soil_ph: soilPh,
+      drainage: drainage,
+      soil_ph: '6.8',
+      soil_quality: 'good',
+      soil_score: soilScore,
+      soil_advice: soilAdvice,
       water_source: waterSource,
       irrigation_type: irrigation,
       current_crop: crop,
-      crop_stage: stage
+      crop_stage: stage,
+      fertilizer_history: fertilizer
     });
 
     this.closeModal('survey-modal');
     this.updateActiveFarmUI();
     await this.refreshFarmIntelligence();
-    this.switchTab('hub');
+    // Per requirement: Lands farmer directly on Mic Advisor Home Page
+    this.switchTab('voice');
   }
 
   updateSurveyDistricts(state) {
@@ -846,43 +906,51 @@ class KisanApp {
     }
   }
 
-  toggleAuthMode(e) {
-    if (e) e.preventDefault();
-    this.authMode = this.authMode === 'signin' ? 'signup' : 'signin';
+  setAuthTab(mode) {
+    this.authMode = mode;
+    const btnIn = document.getElementById('auth-tab-signin');
+    const btnUp = document.getElementById('auth-tab-signup');
+    const nameGroup = document.getElementById('auth-name-group');
     const actionBtn = document.getElementById('btn-auth-action');
-    const toggleLink = document.getElementById('auth-toggle-mode');
     const t = (p, def) => this._t(p, def);
 
-    if (this.authMode === 'signup') {
-      actionBtn.innerText = t('auth.signup_btn', 'Create Account');
-      toggleLink.innerText = t('auth.toggle_to_signin', 'Already have an account? Sign In');
+    if (mode === 'signup') {
+      if (btnUp) btnUp.classList.add('active');
+      if (btnIn) btnIn.classList.remove('active');
+      if (nameGroup) nameGroup.style.display = 'block';
+      if (actionBtn) actionBtn.innerText = t('auth.signup_btn', 'Create Account & Start Survey ➔');
     } else {
-      actionBtn.innerText = t('auth.signin_btn', 'Sign In');
-      toggleLink.innerText = t('auth.toggle_to_signup', 'New farmer? Create a free account (Sign Up)');
+      if (btnIn) btnIn.classList.add('active');
+      if (btnUp) btnUp.classList.remove('active');
+      if (nameGroup) nameGroup.style.display = 'none';
+      if (actionBtn) actionBtn.innerText = t('auth.signin_btn', 'Continue with Supabase Auth ➔');
     }
+  }
+
+  toggleAuthMode(e) {
+    if (e) e.preventDefault();
+    this.setAuthTab(this.authMode === 'signin' ? 'signup' : 'signin');
   }
 
   async handleAuthSubmit() {
     const email = document.getElementById('auth-email').value.trim();
     const password = document.getElementById('auth-password').value;
+    const fullName = document.getElementById('auth-full-name') ? document.getElementById('auth-full-name').value.trim() : '';
     if (!email || !password) return;
 
     if (this.authMode === 'signup') {
-      await this.dataManager.signUp(email, password);
+      await this.dataManager.signUp(email, password, fullName || 'Farmer');
     } else {
       await this.dataManager.signIn(email, password);
     }
 
     this.closeModal('auth-modal');
     this.updateUserAuthUI();
+    this.updateActiveFarmUI();
+    await this.refreshFarmIntelligence();
 
-    const farms = this.dataManager.getFarms();
-    if (farms.length === 0) {
-      this.openNewFarmSurvey(true);
-    } else {
-      this.updateActiveFarmUI();
-      this.refreshFarmIntelligence();
-    }
+    // After auth: Open comprehensive soil & land survey
+    this.openNewFarmSurvey(false);
   }
 
   async quickDemoLogin() {
@@ -890,7 +958,10 @@ class KisanApp {
     this.closeModal('auth-modal');
     this.updateUserAuthUI();
     this.updateActiveFarmUI();
-    this.refreshFarmIntelligence();
+    await this.refreshFarmIntelligence();
+
+    // After demo bypass: Launch survey for farmer
+    this.openNewFarmSurvey(false);
   }
 
   /* ---------------- Plant Doctor (Crop Image Diagnosis) ---------------- */
